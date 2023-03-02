@@ -1,13 +1,7 @@
 ---
-import Menu from "../../components/aboutPage/Menu.astro";
-import Layout from "../../layouts/Layout.astro";
-
-export const dummy = "DUMMY";
+import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
 
-<Layout title="About Us - Kanoria Chemicals">
-  <div class="lg:flex">
-    <Menu />
-    <main>About KCI</main>
-  </div>
-</Layout>
+<AboutPageLayout>
+  <main>About KCI</main>
+</AboutPageLayout>

@@ -8,7 +8,9 @@ const getLinkTitle = (href: string): string =>
     .map((i) => i[0].toUpperCase() + i.slice(1))
     .join(" ");
 
-const getSubpages = (glob: Record<string, () => Promise<unknown>>) =>
+const getSubpages = (
+  glob: Record<string, () => Promise<unknown>>
+): Promise<{ href: string; title: string }[]> =>
   Promise.all(
     Object.entries(glob)
       .filter(([path]) => !/.*index\./.test(path))

@@ -2,7 +2,7 @@
 import { getSubpages } from "../../utils";
 
 const childPages = await getSubpages(
-  import.meta.glob("../../pages/about/*.{astro,md,mdx,html}")
+  import.meta.glob("../../pages/products/*.{astro,md,mdx,html}")
 );
 
 const currentPath = new URL(Astro.request.url).pathname;
