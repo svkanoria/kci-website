@@ -1,11 +1,20 @@
 ---
-import { getSubPageLinks } from "../utils";
+import { getPageLink, getPageLinks } from "../utils";
+import NavBarItem from "./navBar/NavBarItem.astro";
 
-const aboutPageLinks = await getSubPageLinks(
+const aboutPageLink = await getPageLink(
+  import.meta.glob("../pages/about/index.astro")
+);
+
+const aboutPageLinks = await getPageLinks(
   import.meta.glob("../pages/about/*.{astro,md,mdx,html}")
 );
 
-const productPageLinks = await getSubPageLinks(
+const productPageLink = await getPageLink(
+  import.meta.glob("../pages/products/index.astro")
+);
+
+const productPageLinks = await getPageLinks(
   import.meta.glob("../pages/products/*.{astro,md,mdx,html}")
 );
 ---
@@ -31,8 +40,12 @@ const productPageLinks = await getSubPageLinks(
         tabindex="0"
         class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
       >
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/products">Products</a></li>
+        <li>
+          <NavBarItem pageLink={aboutPageLink} />
+        </li>
+        <li>
+          <NavBarItem pageLink={productPageLink} />
+        </li>
       </ul>
     </div>
     <a href="/" class="btn btn-ghost normal-case text-xl">KCI</a>
@@ -40,7 +53,7 @@ const productPageLinks = await getSubPageLinks(
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li tabindex="0">
-        <a class="justify-between" href="/about">About Us</a>
+        <NavBarItem pageLink={aboutPageLink} className="justify-between" />
         <ul class="p-2">
           {
             aboutPageLinks.map((page) => (
@@ -52,7 +65,7 @@ const productPageLinks = await getSubPageLinks(
         </ul>
       </li>
       <li tabindex="0">
-        <a class="justify-between" href="/products">Products</a>
+        <NavBarItem pageLink={productPageLink} className="justify-between" />
         <ul class="p-2">
           {
             productPageLinks.map((page) => (

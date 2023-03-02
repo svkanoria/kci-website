@@ -1,0 +1,18 @@
+---
+import { PageLink } from "../../utils";
+
+interface Props {
+  pageLink: PageLink;
+  className?: string;
+}
+
+const { pageLink, className } = Astro.props;
+
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<a
+  href={pageLink.href}
+  class:list={[className, currentPath.match(pageLink.href) ? "active" : ""]}
+  >{pageLink.title}</a
+>

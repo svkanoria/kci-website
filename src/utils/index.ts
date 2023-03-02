@@ -4,7 +4,7 @@ export interface PageLink {
 }
 
 const getLinkHref = (path: string): string =>
-  path.replace(/.*pages\//, "/").replace(/\..*$/, "");
+  path.replace(/.*pages\//, "/").replace(/(\/index)?\..*$/, "");
 
 const getLinkTitle = (href: string): string =>
   href
@@ -13,7 +13,7 @@ const getLinkTitle = (href: string): string =>
     .map((i) => i[0].toUpperCase() + i.slice(1))
     .join(" ");
 
-const getSubPageLinks = (
+const getPageLinks = (
   glob: Record<string, () => Promise<unknown>>
 ): Promise<PageLink[]> =>
   Promise.all(
@@ -27,4 +27,15 @@ const getSubPageLinks = (
     }))
   );
 
-export { getSubPageLinks };
+const getPageLink = async (
+  glob: Record<string, () => Promise<unknown>>
+): Promise<PageLink> => {
+  const [path, fn] = Object.entries(glob)[0];
+  const data = await fn();
+  return {
+    href: getLinkHref(path),
+    title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
+  };
+};
+
+export { getPageLink, getPageLinks };

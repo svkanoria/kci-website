@@ -1,8 +1,8 @@
 ---
-import { getSubPageLinks } from "../../utils";
+import { getPageLinks } from "../../utils";
 import NavMenu from "../NavMenu.astro";
 
-const links = await getSubPageLinks(
+const links = await getPageLinks(
   import.meta.glob("../../pages/about/*.{astro,md,mdx,html}")
 );
 ---
