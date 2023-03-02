@@ -1,16 +1,18 @@
 ---
-import { getSubpages } from "../../utils";
+import { PageLink } from "../utils";
 
-const childPages = await getSubpages(
-  import.meta.glob("../../pages/products/*.{astro,md,mdx,html}")
-);
+interface Props {
+  pageLinks: PageLink[];
+}
+
+const { pageLinks } = Astro.props;
 
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
 <ul class="menu bg-base-100 w-56 hidden lg:flex">
   {
-    childPages.map((page) => (
+    pageLinks.map((page) => (
       <li>
         <a href={page.href} class={currentPath === page.href ? "active" : ""}>
           {page.title}
@@ -26,7 +28,7 @@ const currentPath = new URL(Astro.request.url).pathname;
     class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
   >
     {
-      childPages.map((page) => (
+      pageLinks.map((page) => (
         <li>
           <a href={page.href} class={currentPath === page.href ? "active" : ""}>
             {page.title}

@@ -1,0 +1,10 @@
+---
+import { getSubPageLinks } from "../../utils";
+import NavMenu from "../NavMenu.astro";
+
+const links = await getSubPageLinks(
+  import.meta.glob("../../pages/products/*.{astro,md,mdx,html}")
+);
+---
+
+<NavMenu pageLinks={links} />

@@ -1,3 +1,8 @@
+export interface PageLink {
+  href: string;
+  title: string;
+}
+
 const getLinkHref = (path: string): string =>
   path.replace(/.*pages\//, "/").replace(/\..*$/, "");
 
@@ -8,9 +13,9 @@ const getLinkTitle = (href: string): string =>
     .map((i) => i[0].toUpperCase() + i.slice(1))
     .join(" ");
 
-const getSubpages = (
+const getSubPageLinks = (
   glob: Record<string, () => Promise<unknown>>
-): Promise<{ href: string; title: string }[]> =>
+): Promise<PageLink[]> =>
   Promise.all(
     Object.entries(glob)
       .filter(([path]) => !/.*index\./.test(path))
@@ -22,4 +27,4 @@ const getSubpages = (
     }))
   );
 
-export { getSubpages };
+export { getSubPageLinks };

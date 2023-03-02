@@ -1,8 +1,12 @@
 ---
-import { getSubpages } from "../utils";
+import { getSubPageLinks } from "../utils";
 
-const aboutPages = await getSubpages(
+const aboutPageLinks = await getSubPageLinks(
   import.meta.glob("../pages/about/*.{astro,md,mdx,html}")
+);
+
+const productPageLinks = await getSubPageLinks(
+  import.meta.glob("../pages/products/*.{astro,md,mdx,html}")
 );
 ---
 
@@ -39,7 +43,7 @@ const aboutPages = await getSubpages(
         <a class="justify-between" href="/about">About Us</a>
         <ul class="p-2">
           {
-            aboutPages.map((page) => (
+            aboutPageLinks.map((page) => (
               <li>
                 <a href={page.href}>{page.title}</a>
               </li>
@@ -47,7 +51,18 @@ const aboutPages = await getSubpages(
           }
         </ul>
       </li>
-      <li><a href="/products">Products</a></li>
+      <li tabindex="0">
+        <a class="justify-between" href="/products">Products</a>
+        <ul class="p-2">
+          {
+            productPageLinks.map((page) => (
+              <li>
+                <a href={page.href}>{page.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
     </ul>
   </div>
   <div class="navbar-end"></div>
