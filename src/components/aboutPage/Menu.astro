@@ -1,0 +1,32 @@
+---
+import { getSubpages } from "../../utils";
+
+const childPages = await getSubpages(
+  import.meta.glob("../../pages/about/*.{astro,md,mdx,html}")
+);
+---
+
+<ul class="menu bg-base-100 w-56 hidden lg:flex">
+  {
+    childPages.map((page) => (
+      <li>
+        <a href={page.href}>{page.title}</a>
+      </li>
+    ))
+  }
+</ul>
+<div class="dropdown lg:hidden">
+  <label tabindex="0" class="btn m-1">Click</label>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+  >
+    {
+      childPages.map((page) => (
+        <li>
+          <a href={page.href}>{page.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
