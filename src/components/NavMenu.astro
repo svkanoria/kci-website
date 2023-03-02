@@ -10,7 +10,7 @@ const { pageLinks } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<ul class="menu bg-base-100 w-56 hidden lg:flex">
+<ul class="menu bg-base-100">
   {
     pageLinks.map((page) => (
       <li>
@@ -21,20 +21,3 @@ const currentPath = new URL(Astro.request.url).pathname;
     ))
   }
 </ul>
-<div class="dropdown lg:hidden">
-  <label tabindex="0" class="btn m-1">Click</label>
-  <ul
-    tabindex="0"
-    class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-  >
-    {
-      pageLinks.map((page) => (
-        <li>
-          <a href={page.href} class={currentPath === page.href ? "active" : ""}>
-            {page.title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</div>
