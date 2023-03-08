@@ -1,0 +1,10 @@
+---
+import { getPageLinks } from "../../utils";
+import NavMenu from "../NavMenu.astro";
+
+const links = await getPageLinks(
+  import.meta.glob("../../pages/investors/*.{astro,md,mdx,html}")
+);
+---
+
+<NavMenu pageLinks={[{ href: "/investors", title: "Overview" }, ...links]} />

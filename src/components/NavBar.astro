@@ -10,12 +10,20 @@ const aboutPageLinks = await getPageLinks(
   import.meta.glob("../pages/about/*.{astro,md,mdx,html}")
 );
 
-const productPageLink = await getPageLink(
+const productsPageLink = await getPageLink(
   import.meta.glob("../pages/products/index.astro")
 );
 
 const productPageLinks = await getPageLinks(
   import.meta.glob("../pages/products/*.{astro,md,mdx,html}")
+);
+
+const investorsPageLink = await getPageLink(
+  import.meta.glob("../pages/investors/index.astro")
+);
+
+const investorsPageLinks = await getPageLinks(
+  import.meta.glob("../pages/investors/*.{astro,md,mdx,html}")
 );
 ---
 
@@ -62,12 +70,27 @@ const productPageLinks = await getPageLinks(
             </li>
             <li tabindex="0">
               <NavBarItem
-                pageLink={productPageLink}
+                pageLink={productsPageLink}
                 className="justify-between"
               />
               <ul class="p-2 bg-base-200">
                 {
                   productPageLinks.map((page) => (
+                    <li>
+                      <NavBarItem pageLink={page} />
+                    </li>
+                  ))
+                }
+              </ul>
+            </li>
+            <li tabindex="0">
+              <NavBarItem
+                pageLink={investorsPageLink}
+                className="justify-between"
+              />
+              <ul class="p-2 bg-base-200">
+                {
+                  investorsPageLinks.map((page) => (
                     <li>
                       <NavBarItem pageLink={page} />
                     </li>
@@ -99,11 +122,23 @@ const productPageLinks = await getPageLinks(
         }
       </ul>
       <li>
-        <NavBarItem pageLink={productPageLink} />
+        <NavBarItem pageLink={productsPageLink} />
       </li>
       <ul class="px-4">
         {
           productPageLinks.map((page) => (
+            <li>
+              <NavBarItem pageLink={page} />
+            </li>
+          ))
+        }
+      </ul>
+      <li>
+        <NavBarItem pageLink={investorsPageLink} />
+      </li>
+      <ul class="px-4">
+        {
+          investorsPageLinks.map((page) => (
             <li>
               <NavBarItem pageLink={page} />
             </li>
