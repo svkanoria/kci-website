@@ -7,4 +7,4 @@ const links = await getPageLinks(
 );
 ---
 
-<NavMenu pageLinks={links} />
+<NavMenu pageLinks={[{ href: "/about", title: "Overview" }, ...links]} />
