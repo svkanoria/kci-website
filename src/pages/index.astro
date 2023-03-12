@@ -1,11 +1,17 @@
 ---
-import { Image } from "astro:assets";
+import { Resize } from "@cloudinary/url-gen/actions";
+import CldImage from "../components/CldImage.astro";
 import Layout from "../layouts/Layout.astro";
-import banner from "../assets/banner.jpg";
 ---
 
 <Layout title="Welcome to KCI">
   <main>
-    <Image src={banner} alt="KCI banner" quality="mid" />
+    <CldImage
+      src="banner_xgcvqp"
+      width="6379px"
+      height="3588px"
+      alt="KCI banner"
+      transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
+    />
   </main>
 </Layout>

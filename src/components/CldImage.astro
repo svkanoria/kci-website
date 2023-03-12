@@ -1,0 +1,28 @@
+---
+import { Cloudinary, CloudinaryImage } from "@cloudinary/url-gen";
+
+interface Props {
+  src: string; // Image id or URL
+  width: string;
+  height: string;
+  alt: string;
+  class?: string;
+  transform?: (image: CloudinaryImage) => CloudinaryImage;
+}
+
+const { src, transform = (i) => i, ...props } = Astro.props;
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "kanoriachem",
+  },
+});
+
+let image = transform(cld.image(src).format("auto").quality("auto"));
+
+if (src.startsWith("https://")) {
+  image.setDeliveryType("fetch");
+}
+---
+
+<img loading="lazy" src={image.toURL()} {...props} />
