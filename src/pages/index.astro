@@ -1,7 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import banner from "../assets/banner.jpg";
 ---
 
 <Layout title="Welcome to KCI">
-  <main>Welcome to KCI</main>
+  <main>
+    <Image src={banner} alt="KCI banner" quality="mid" />
+  </main>
 </Layout>
