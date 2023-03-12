@@ -1,0 +1,13 @@
+---
+import { PageLink } from "../../utils";
+
+export interface Props {
+  pageLink: PageLink;
+}
+
+const { pageLink } = Astro.props;
+---
+
+<div class="w-full h-40">
+  {pageLink.title}
+</div>

@@ -1,0 +1,12 @@
+---
+import { getPageLinks } from "../../utils";
+import ProductListItem from "./ProductListItem.astro";
+
+const links = await getPageLinks(
+  import.meta.glob("../../pages/products/*.{astro,md,mdx,html}")
+);
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {links.map((link) => <ProductListItem pageLink={link} />)}
+</div>
