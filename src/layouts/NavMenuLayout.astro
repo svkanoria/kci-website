@@ -12,11 +12,11 @@ const { title } = Astro.props;
   <div class="md:container mx-auto pt-4">
     <div class="flex flex-col lg:flex-row">
       <nav
-        class="order-last lg:order-none w-60 max-w-full p-4 self-center lg:self-auto"
+        class="flex-shrink-0 order-last lg:order-none w-60 max-w-full p-8 self-center lg:self-auto"
       >
         <slot name="navMenu" />
       </nav>
-      <main class="flex-grow p-4">
+      <main class="flex-grow p-8">
         <slot />
       </main>
     </div>

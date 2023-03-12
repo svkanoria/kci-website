@@ -1,6 +1,7 @@
 export interface PageLink {
   href: string;
   title: string;
+  thumb?: string;
 }
 
 const getLinkHref = (path: string): string =>
@@ -24,6 +25,7 @@ const getPageLinks = (
     pages.map(({ path, data }) => ({
       href: getLinkHref(path),
       title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
+      thumb: (data as any).__kci_navThumb ?? undefined,
     }))
   );
 
@@ -35,6 +37,7 @@ const getPageLink = async (
   return {
     href: getLinkHref(path),
     title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
+    thumb: (data as any).__kci_navThumb ?? undefined,
   };
 };
 
