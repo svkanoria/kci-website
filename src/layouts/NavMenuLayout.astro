@@ -9,14 +9,14 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <div class="md:container mx-auto pt-4">
+  <div class="md:container mx-auto">
     <div class="flex flex-col lg:flex-row">
       <nav
-        class="flex-shrink-0 order-last lg:order-none w-60 max-w-full p-8 self-center lg:self-auto"
+        class="flex-shrink-0 order-last lg:order-none w-60 max-w-full p-4 md:p-8 self-center lg:self-auto"
       >
         <slot name="navMenu" />
       </nav>
-      <main class="flex-grow p-8">
+      <main class="flex-grow p-4 md:p-8">
         <slot />
       </main>
     </div>
