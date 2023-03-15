@@ -7,18 +7,18 @@ const links = await getPageLinks(
 );
 ---
 
-<ul class="flex flex-col p-4 md:p-8">
+<div class="grid md:grid-cols-2">
   {
     mapPageLinks(
       (links, group) => (
-        <>
+        <ul>
           <li>{group}</li>
           {links.map((link) => (
             <ProductListItem pageLink={link} />
           ))}
-        </>
+        </ul>
       ),
       links
     )
   }
-</ul>
+</div>
