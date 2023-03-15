@@ -1,6 +1,12 @@
 ---
-import { getPageLink, getPageLinks, mapPageLinks } from "../utils";
+import {
+  concatPageLink,
+  getPageLink,
+  getPageLinks,
+  mapPageLinks,
+} from "../utils";
 import NavBarItem from "./navBar/NavBarItem.astro";
+import NavBarMenu from "./navBar/NavBarMenu.astro";
 import NavGroupTitle from "./NavGroupTitle.astro";
 
 const aboutPageLink = await getPageLink(
@@ -58,70 +64,34 @@ const investorsPageLinks = await getPageLinks(
               <NavBarItem
                 pageLink={aboutPageLink}
                 className="justify-between"
+                noHref
               />
-              <ul class="p-2 bg-base-200">
-                {
-                  mapPageLinks(
-                    (links, group) => (
-                      <>
-                        <NavGroupTitle group={group} />
-                        {links.map((link) => (
-                          <li>
-                            <NavBarItem pageLink={link} />
-                          </li>
-                        ))}
-                      </>
-                    ),
-                    aboutPageLinks
-                  )
-                }
-              </ul>
+              <NavBarMenu
+                links={aboutPageLinks}
+                overviewLinkHref={aboutPageLink.href}
+              />
             </li>
             <li tabindex="0">
               <NavBarItem
                 pageLink={productsPageLink}
                 className="justify-between"
+                noHref
               />
-              <ul class="p-2 bg-base-200">
-                {
-                  mapPageLinks(
-                    (links, group) => (
-                      <>
-                        <NavGroupTitle group={group} />
-                        {links.map((link) => (
-                          <li>
-                            <NavBarItem pageLink={link} />
-                          </li>
-                        ))}
-                      </>
-                    ),
-                    productPageLinks
-                  )
-                }
-              </ul>
+              <NavBarMenu
+                links={productPageLinks}
+                overviewLinkHref={productsPageLink.href}
+              />
             </li>
             <li tabindex="0">
               <NavBarItem
                 pageLink={investorsPageLink}
                 className="justify-between"
+                noHref
               />
-              <ul class="p-2 bg-base-200">
-                {
-                  mapPageLinks(
-                    (links, group) => (
-                      <>
-                        <NavGroupTitle group={group} />
-                        {links.map((link) => (
-                          <li>
-                            <NavBarItem pageLink={link} />
-                          </li>
-                        ))}
-                      </>
-                    ),
-                    investorsPageLinks
-                  )
-                }
-              </ul>
+              <NavBarMenu
+                links={investorsPageLinks}
+                overviewLinkHref={investorsPageLink.href}
+              />
             </li>
           </ul>
         </div>
