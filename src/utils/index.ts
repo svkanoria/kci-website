@@ -1,3 +1,5 @@
+import { groupBy, mapObjIndexed, omit, T, values } from "ramda";
+
 export interface PageLink {
   href: string;
   title: string;
@@ -17,19 +19,21 @@ const getLinkTitle = (href: string): string =>
 
 const getPageLinks = (
   glob: Record<string, () => Promise<unknown>>
-): Promise<PageLink[]> =>
+): Promise<Record<string, PageLink[]>> =>
   Promise.all(
     Object.entries(glob)
       .filter(([path]) => !/.*index\./.test(path))
       .map(([path, fn]) => fn().then((data) => ({ path, data })))
-  ).then((pages) =>
-    pages.map(({ path, data }) => ({
-      href: getLinkHref(path),
-      title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
-      thumb: (data as any).__kci_navThumb ?? undefined,
-      group: (data as any).__kci_navGroup ?? undefined,
-    }))
-  );
+  )
+    .then((pages) =>
+      pages.map(({ path, data }) => ({
+        href: getLinkHref(path),
+        title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
+        thumb: (data as any).__kci_navThumb ?? undefined,
+        group: (data as any).__kci_navGroup ?? undefined,
+      }))
+    )
+    .then(groupBy((l) => l.group ?? "__default"));
 
 const getPageLink = async (
   glob: Record<string, () => Promise<unknown>>
@@ -44,4 +48,29 @@ const getPageLink = async (
   };
 };
 
-export { getPageLink, getPageLinks };
+const mapPageLinks = <T>(
+  f: (links: PageLink[], group: string) => T,
+  links: Record<string, PageLink[]>
+) => values(mapObjIndexed(f, links));
+
+const concatPageLink = (
+  links: Record<string, PageLink[]>,
+  link: PageLink,
+  group: string = "__default"
+) => ({
+  [group]: [link, ...(links[group] ?? [])],
+  ...omit([group], links),
+});
+
+const DEFAULT_NAV_GROUP = "__default";
+
+const isDefaultNavGroup = (group: string) => group === DEFAULT_NAV_GROUP;
+
+export {
+  getPageLink,
+  getPageLinks,
+  mapPageLinks,
+  concatPageLink,
+  DEFAULT_NAV_GROUP,
+  isDefaultNavGroup,
+};

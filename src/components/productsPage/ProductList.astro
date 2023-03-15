@@ -1,5 +1,5 @@
 ---
-import { getPageLinks } from "../../utils";
+import { getPageLinks, mapPageLinks } from "../../utils";
 import ProductListItem from "./ProductListItem.astro";
 
 const links = await getPageLinks(
@@ -7,6 +7,18 @@ const links = await getPageLinks(
 );
 ---
 
-<ul class="flex flex-col items-center p-4 md:p-8">
-  {links.map((link) => <ProductListItem pageLink={link} />)}
+<ul class="flex flex-col p-4 md:p-8">
+  {
+    mapPageLinks(
+      (links, group) => (
+        <>
+          <li>{group}</li>
+          {links.map((link) => (
+            <ProductListItem pageLink={link} />
+          ))}
+        </>
+      ),
+      links
+    )
+  }
 </ul>

@@ -1,5 +1,5 @@
 ---
-import { getPageLinks } from "../../utils";
+import { concatPageLink, getPageLinks } from "../../utils";
 import NavMenu from "../NavMenu.astro";
 
 const links = await getPageLinks(
@@ -7,4 +7,6 @@ const links = await getPageLinks(
 );
 ---
 
-<NavMenu pageLinks={[{ href: "/about", title: "Overview" }, ...links]} />
+<NavMenu
+  pageLinks={concatPageLink(links, { href: "/about", title: "Overview" })}
+/>

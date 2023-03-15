@@ -1,6 +1,7 @@
 ---
-import { getPageLink, getPageLinks } from "../utils";
+import { getPageLink, getPageLinks, mapPageLinks } from "../utils";
 import NavBarItem from "./navBar/NavBarItem.astro";
+import NavGroupTitle from "./NavGroupTitle.astro";
 
 const aboutPageLink = await getPageLink(
   import.meta.glob("../pages/about/index.astro")
@@ -60,11 +61,19 @@ const investorsPageLinks = await getPageLinks(
               />
               <ul class="p-2 bg-base-200">
                 {
-                  aboutPageLinks.map((page) => (
-                    <li>
-                      <NavBarItem pageLink={page} />
-                    </li>
-                  ))
+                  mapPageLinks(
+                    (links, group) => (
+                      <>
+                        <NavGroupTitle group={group} />
+                        {links.map((link) => (
+                          <li>
+                            <NavBarItem pageLink={link} />
+                          </li>
+                        ))}
+                      </>
+                    ),
+                    aboutPageLinks
+                  )
                 }
               </ul>
             </li>
@@ -75,11 +84,19 @@ const investorsPageLinks = await getPageLinks(
               />
               <ul class="p-2 bg-base-200">
                 {
-                  productPageLinks.map((page) => (
-                    <li>
-                      <NavBarItem pageLink={page} />
-                    </li>
-                  ))
+                  mapPageLinks(
+                    (links, group) => (
+                      <>
+                        <NavGroupTitle group={group} />
+                        {links.map((link) => (
+                          <li>
+                            <NavBarItem pageLink={link} />
+                          </li>
+                        ))}
+                      </>
+                    ),
+                    productPageLinks
+                  )
                 }
               </ul>
             </li>
@@ -90,11 +107,19 @@ const investorsPageLinks = await getPageLinks(
               />
               <ul class="p-2 bg-base-200">
                 {
-                  investorsPageLinks.map((page) => (
-                    <li>
-                      <NavBarItem pageLink={page} />
-                    </li>
-                  ))
+                  mapPageLinks(
+                    (links, group) => (
+                      <>
+                        <NavGroupTitle group={group} />
+                        {links.map((link) => (
+                          <li>
+                            <NavBarItem pageLink={link} />
+                          </li>
+                        ))}
+                      </>
+                    ),
+                    investorsPageLinks
+                  )
                 }
               </ul>
             </li>
@@ -116,11 +141,19 @@ const investorsPageLinks = await getPageLinks(
       </li>
       <ul class="px-4">
         {
-          aboutPageLinks.map((page) => (
-            <li>
-              <NavBarItem pageLink={page} />
-            </li>
-          ))
+          mapPageLinks(
+            (links, group) => (
+              <>
+                <NavGroupTitle group={group} />
+                {links.map((link) => (
+                  <li>
+                    <NavBarItem pageLink={link} />
+                  </li>
+                ))}
+              </>
+            ),
+            aboutPageLinks
+          )
         }
       </ul>
       <li>
@@ -128,11 +161,19 @@ const investorsPageLinks = await getPageLinks(
       </li>
       <ul class="px-4">
         {
-          productPageLinks.map((page) => (
-            <li>
-              <NavBarItem pageLink={page} />
-            </li>
-          ))
+          mapPageLinks(
+            (links, group) => (
+              <>
+                <NavGroupTitle group={group} />
+                {links.map((link) => (
+                  <li>
+                    <NavBarItem pageLink={link} />
+                  </li>
+                ))}
+              </>
+            ),
+            productPageLinks
+          )
         }
       </ul>
       <li>
@@ -140,11 +181,19 @@ const investorsPageLinks = await getPageLinks(
       </li>
       <ul class="px-4">
         {
-          investorsPageLinks.map((page) => (
-            <li>
-              <NavBarItem pageLink={page} />
-            </li>
-          ))
+          mapPageLinks(
+            (links, group) => (
+              <>
+                <NavGroupTitle group={group} />
+                {links.map((link) => (
+                  <li>
+                    <NavBarItem pageLink={link} />
+                  </li>
+                ))}
+              </>
+            ),
+            investorsPageLinks
+          )
         }
       </ul>
     </ul>

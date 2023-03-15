@@ -1,0 +1,17 @@
+---
+import { isDefaultNavGroup } from "../utils";
+
+export interface Props {
+  group: string;
+}
+
+const { group } = Astro.props;
+---
+
+{
+  !isDefaultNavGroup(group) && (
+    <li class="menu-title">
+      <span>{group}</span>
+    </li>
+  )
+}
