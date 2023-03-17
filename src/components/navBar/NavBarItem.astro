@@ -1,5 +1,5 @@
 ---
-import { PageLink } from "../../utils";
+import { PageLink, prependPseudo } from "../../utils";
 
 interface Props {
   pageLink: PageLink;
@@ -11,18 +11,24 @@ interface Props {
 const { pageLink, className, noHref, activeIfExact } = Astro.props;
 
 const currentPath = new URL(Astro.request.url).pathname;
+const active = activeIfExact
+  ? currentPath === pageLink.href
+  : currentPath.match(pageLink.href);
 ---
 
 <a
   {...noHref ? {} : { href: pageLink.href }}
   class:list={[
     className,
-    (
-      activeIfExact
-        ? currentPath === pageLink.href
-        : currentPath.match(pageLink.href)
-    )
-      ? "active"
-      : "",
-  ]}>{pageLink.title}</a
+    {
+      active,
+      ["cursor-default"]: noHref,
+      // If noHref, link UI should not behave like button
+      ["active:bg-primary active:text-primary-content"]: noHref && active,
+      ["active:bg-base-content active:bg-opacity-10 active:text-current"]:
+        noHref && !active,
+    },
+  ]}
 >
+  {pageLink.title}
+</a>
