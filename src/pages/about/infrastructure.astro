@@ -1,4 +1,5 @@
 ---
+import Carousel from "../../components/Carousel.astro";
 import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
@@ -9,5 +10,12 @@ import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
     title="Infrastructure"
     bgImageSrc="infra-banner_nx9jw7"
   />
-  <div>TBD</div>
+  <Carousel
+    images={[
+      { src: "penta_xlszw6", alt: "Pentaerythritol plant" },
+      { src: "tank-farm_l6k86c", alt: "Tank farm" },
+      { src: "fd4_enisya", alt: "Formaldehyde plant" },
+      { src: "hexa_vzst6c", alt: "Hexamine plant" },
+    ]}
+  />
 </AboutPageLayout>
