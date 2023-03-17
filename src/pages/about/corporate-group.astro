@@ -1,5 +1,17 @@
 ---
+import { Effect } from "@cloudinary/url-gen/actions";
+import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
 
-<AboutPageLayout>Corporate Group</AboutPageLayout>
+<AboutPageLayout>
+  <!-- Photo by <a href="https://unsplash.com/@photowolf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Olsen</a> on <a href="https://unsplash.com/photos/zR3wTk9End8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   -->
+  <TopHero
+    slot="hero"
+    title="Corporate Group"
+    bgImageSrc="corp-group-banner_wlzpkb"
+    transformBgImage={(image) => image.effect(Effect.blur().strength(2000))}
+  />
+  <div>TBD</div>
+</AboutPageLayout>

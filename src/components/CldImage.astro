@@ -1,5 +1,6 @@
 ---
-import { Cloudinary, CloudinaryImage } from "@cloudinary/url-gen";
+import { CloudinaryImage } from "@cloudinary/url-gen";
+import { cld } from "../utils";
 
 interface Props {
   src: string; // Image id or URL
@@ -11,12 +12,6 @@ interface Props {
 }
 
 const { src, transform = (i) => i, ...props } = Astro.props;
-
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: "kanoriachem",
-  },
-});
 
 let image = transform(cld.image(src).format("auto").quality("auto"));
 

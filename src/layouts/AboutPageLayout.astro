@@ -4,6 +4,7 @@ import NavMenuLayout from "./NavMenuLayout.astro";
 ---
 
 <NavMenuLayout title="About Us - Kanoria Chemicals">
+  <slot name="hero" slot="hero" />
   <NavMenu slot="navMenu" />
   <slot />
 </NavMenuLayout>

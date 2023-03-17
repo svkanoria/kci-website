@@ -1,5 +1,9 @@
 ---
+import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
 
-<AboutPageLayout>Our Story</AboutPageLayout>
+<AboutPageLayout>
+  <TopHero slot="hero" title="Our Story" bgImageSrc="our-story-banner_ekw5kg" />
+  <div>TBD</div>
+</AboutPageLayout>

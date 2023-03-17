@@ -1,0 +1,40 @@
+---
+import { CloudinaryImage } from "@cloudinary/url-gen";
+import { Resize } from "@cloudinary/url-gen/actions";
+import { compass } from "@cloudinary/url-gen/qualifiers/gravity";
+import { cld } from "../utils";
+
+export interface Props {
+  title: string;
+  bgImageSrc?: string;
+  transformBgImage?: (image: CloudinaryImage) => CloudinaryImage;
+}
+
+const { title, bgImageSrc, transformBgImage = (i) => i } = Astro.props;
+
+let image = bgImageSrc
+  ? transformBgImage(
+      cld
+        .image(bgImageSrc)
+        .format("auto")
+        .quality("auto")
+        .resize(Resize.fill().width(3000).height(800))
+    )
+  : null;
+
+if (image && bgImageSrc.startsWith("https://")) {
+  image.setDeliveryType("fetch");
+}
+---
+
+<div
+  class="hero flex-shrink-0 h-40 md:h-72 bg-slate-100"
+  {...image ? { style: `background-image: url(${image.toURL()});` } : {}}
+>
+  {image && <div class="hero-overlay bg-opacity-70" />}
+  <div class="hero-content">
+    <h1 class:list={["text-5xl", { ["text-white"]: image }]}>
+      {title}
+    </h1>
+  </div>
+</div>

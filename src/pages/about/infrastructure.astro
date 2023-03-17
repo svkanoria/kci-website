@@ -1,5 +1,13 @@
 ---
+import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
 
-<AboutPageLayout>Infrastructure</AboutPageLayout>
+<AboutPageLayout>
+  <TopHero
+    slot="hero"
+    title="Infrastructure"
+    bgImageSrc="infra-banner_nx9jw7"
+  />
+  <div>TBD</div>
+</AboutPageLayout>
