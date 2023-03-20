@@ -4,6 +4,8 @@ export interface PageLink {
   href: string;
   title: string;
   thumb?: string;
+  banner?: string;
+  desc?: string;
   group?: string;
 }
 
@@ -17,6 +19,15 @@ const getLinkTitle = (href: string): string =>
     .map((i) => i[0].toUpperCase() + i.slice(1))
     .join(" ");
 
+const buildPageLink = (path: string, data: any): PageLink => ({
+  href: getLinkHref(path),
+  title: data.__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
+  thumb: data.__kci_navThumb ?? undefined,
+  banner: data.__kci_navBanner ?? undefined,
+  desc: data.__kci_navDesc ?? undefined,
+  group: data.__kci_navGroup ?? undefined,
+});
+
 const getPageLinks = (
   glob: Record<string, () => Promise<unknown>>
 ): Promise<Record<string, PageLink[]>> =>
@@ -25,14 +36,7 @@ const getPageLinks = (
       .filter(([path]) => !/.*index\./.test(path))
       .map(([path, fn]) => fn().then((data) => ({ path, data })))
   )
-    .then((pages) =>
-      pages.map(({ path, data }) => ({
-        href: getLinkHref(path),
-        title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
-        thumb: (data as any).__kci_navThumb ?? undefined,
-        group: (data as any).__kci_navGroup ?? undefined,
-      }))
-    )
+    .then((pages) => pages.map(({ path, data }) => buildPageLink(path, data)))
     .then(groupBy((l) => l.group ?? "__default"));
 
 const getPageLink = async (
@@ -40,12 +44,7 @@ const getPageLink = async (
 ): Promise<PageLink> => {
   const [path, fn] = Object.entries(glob)[0];
   const data = await fn();
-  return {
-    href: getLinkHref(path),
-    title: (data as any).__kci_navTitle ?? getLinkTitle(getLinkHref(path)),
-    thumb: (data as any).__kci_navThumb ?? undefined,
-    group: (data as any).__kci_navGroup ?? undefined,
-  };
+  return buildPageLink(path, data);
 };
 
 const mapPageLinks = <T>(

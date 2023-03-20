@@ -1,0 +1,13 @@
+---
+import TopHero from "../../components/TopHero.astro";
+import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
+
+export const __kci_navBanner = "sustain-banner_u1eoze";
+export const __kci_navDesc =
+  "We aim to contribute meaningfully to building a sustainable future. Along with our own R&D, we partner with academia and industry to ensure that economic growth and sustainability go hand-in-hand.";
+---
+
+<AboutPageLayout>
+  <TopHero slot="hero" title="Sustainability" bgImageSrc={__kci_navBanner} />
+  <div>TBD</div>
+</AboutPageLayout>

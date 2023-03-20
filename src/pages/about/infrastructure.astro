@@ -4,14 +4,14 @@ import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
+
+export const __kci_navBanner = "infra-banner_nx9jw7";
+export const __kci_navDesc =
+  "We operate 3 state-of-the-art manufacturing facilities in India, strategically located near consumption centres and raw material sources.";
 ---
 
 <AboutPageLayout>
-  <TopHero
-    slot="hero"
-    title="Infrastructure"
-    bgImageSrc="infra-banner_nx9jw7"
-  />
+  <TopHero slot="hero" title="Infrastructure" bgImageSrc={__kci_navBanner} />
   <Section>
     <H2>Ankleshwar</H2>
     <Carousel

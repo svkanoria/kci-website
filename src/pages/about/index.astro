@@ -1,5 +1,6 @@
 ---
 import { Resize } from "@cloudinary/url-gen/actions";
+import NavCards from "../../components/aboutPage/NavCards.astro";
 import CldImage from "../../components/CldImage.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
@@ -7,10 +8,11 @@ import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 
 export const __kci_navTitle = "About Us";
+export const __kci_navBanner = "about-us-banner_ekw5kg";
 ---
 
 <AboutPageLayout>
-  <TopHero slot="hero" title="About Us" bgImageSrc="about-us-banner_ekw5kg" />
+  <TopHero slot="hero" title="About Us" bgImageSrc={__kci_navBanner} />
   <Section class="flex flex-col xl:flex-row">
     <Section>
       <H2>Chairman's Message</H2>
@@ -77,5 +79,8 @@ export const __kci_navTitle = "About Us";
         alt="Responsible Care logo"
       />
     </Section>
+  </Section>
+  <Section>
+    <NavCards />
   </Section>
 </AboutPageLayout>

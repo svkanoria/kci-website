@@ -1,0 +1,43 @@
+---
+import { Resize } from "@cloudinary/url-gen/actions";
+import { getPageLinks, mapPageLinks } from "../../utils";
+import CldImage from "../CldImage.astro";
+
+const links = await getPageLinks(
+  import.meta.glob("../../pages/about/*.{astro,md,mdx,html}")
+);
+---
+
+<div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+  {
+    mapPageLinks(
+      (links) =>
+        links.map((link) => (
+          <div class="card card-compact bg-base-100 shadow-xl">
+            {link.banner && (
+              <figure>
+                <CldImage
+                  src={link.banner}
+                  width="100%"
+                  height="auto"
+                  alt={link.title}
+                  transform={(image) => image.resize(Resize.fill(800, 350))}
+                  class="w-full h-full object-cover"
+                />
+              </figure>
+            )}
+            <div class="card-body">
+              <h2 class="card-title">{link.title}</h2>
+              {link.desc && <p>{link.desc}</p>}
+              <div class="card-actions justify-end">
+                <a class="btn btn-ghost" href={link.href}>
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        )),
+      links
+    )
+  }
+</div>
