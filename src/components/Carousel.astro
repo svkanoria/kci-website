@@ -51,16 +51,19 @@ const { images } = Astro.props;
   import Splide from "@splidejs/splide";
   import "@splidejs/splide/css";
 
-  new Splide(".splide", {
-    perPage: 3,
-    gap: "16px",
-    breakpoints: {
-      1280: {
-        perPage: 2,
+  const elements = document.getElementsByClassName("splide");
+  for (let i = 0; i < elements.length; i++) {
+    new Splide(elements[i] as HTMLElement, {
+      perPage: 3,
+      gap: "16px",
+      breakpoints: {
+        1280: {
+          perPage: 2,
+        },
+        640: {
+          perPage: 1,
+        },
       },
-      640: {
-        perPage: 1,
-      },
-    },
-  }).mount();
+    }).mount();
+  }
 </script>
