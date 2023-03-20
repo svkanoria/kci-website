@@ -1,11 +1,14 @@
 ---
 import ProductList from "../../components/productsPage/ProductList.astro";
+import TopHero from "../../components/TopHero.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export const __kci_navTitle = "Products";
+export const __kci_navBanner = "products-banner_riabmc";
 ---
 
 <Layout title="Products - KCI">
+  <TopHero slot="hero" title="Products" bgImageSrc={__kci_navBanner} />
   <div class="md:container mx-auto">
     <div class="flex justify-center p-4 md:p-8">
       <div class="md:min-w-[600px]">
