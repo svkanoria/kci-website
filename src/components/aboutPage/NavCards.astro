@@ -22,7 +22,7 @@ const links = await getPageLinks(
                   height="auto"
                   alt={link.title}
                   transform={(image) => image.resize(Resize.fill(800, 350))}
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover max-h-40"
                 />
               </figure>
             )}
