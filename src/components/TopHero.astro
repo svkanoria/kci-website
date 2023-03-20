@@ -27,7 +27,7 @@ if (image && bgImageSrc.startsWith("https://")) {
 }
 ---
 
-<div
+<section
   class="hero flex-shrink-0 h-40 md:h-72 bg-slate-100"
   {...image ? { style: `background-image: url(${image.toURL()});` } : {}}
 >
@@ -37,4 +37,4 @@ if (image && bgImageSrc.startsWith("https://")) {
       {title}
     </h1>
   </div>
-</div>
+</section>
