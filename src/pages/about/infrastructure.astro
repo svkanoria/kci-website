@@ -1,6 +1,8 @@
 ---
 import Carousel from "../../components/Carousel.astro";
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
+import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 ---
 
@@ -10,24 +12,28 @@ import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
     title="Infrastructure"
     bgImageSrc="infra-banner_nx9jw7"
   />
-  <h2 class="pb-2 text-3xl">Ankleshwar</h2>
-  <Carousel
-    images={[
-      { src: "penta_xlszw6", alt: "Pentaerythritol Plant" },
-      { src: "fd4_enisya", alt: "Formaldehyde Plant" },
-      { src: "hexa_vzst6c", alt: "Hexamine Plant" },
-      { src: "tank-farm_l6k86c", alt: "Tank Farm" },
-      { src: "instrument-lab_cc2jec", alt: "Laboratory " },
-    ]}
-  />
-  <h2 class="pb-2 text-3xl">Visakhapatnam</h2>
-  <Carousel
-    images={[
-      { src: "fd-vizag_kkai0g", alt: "Formaldehyde Plant" },
-      { src: "hexa-plant_ydin3z", alt: "Hexamine Plant" },
-      { src: "resin-plant_mjtb0s", alt: "Phenolic Resin Plant" },
-      { src: "rnd-pilot-plant_n8zjlv", alt: "R&D Pilot Plant" },
-      { src: "tank-farm_aybbf2", alt: "Tank Farm" },
-    ]}
-  />
+  <Section>
+    <H2>Ankleshwar</H2>
+    <Carousel
+      images={[
+        { src: "penta_xlszw6", alt: "Pentaerythritol Plant" },
+        { src: "fd4_enisya", alt: "Formaldehyde Plant" },
+        { src: "hexa_vzst6c", alt: "Hexamine Plant" },
+        { src: "tank-farm_l6k86c", alt: "Tank Farm" },
+        { src: "instrument-lab_cc2jec", alt: "Laboratory " },
+      ]}
+    />
+  </Section>
+  <Section>
+    <H2>Visakhapatnam</H2>
+    <Carousel
+      images={[
+        { src: "fd-vizag_kkai0g", alt: "Formaldehyde Plant" },
+        { src: "hexa-plant_ydin3z", alt: "Hexamine Plant" },
+        { src: "resin-plant_mjtb0s", alt: "Phenolic Resin Plant" },
+        { src: "rnd-pilot-plant_n8zjlv", alt: "R&D Pilot Plant" },
+        { src: "tank-farm_aybbf2", alt: "Tank Farm" },
+      ]}
+    />
+  </Section>
 </AboutPageLayout>

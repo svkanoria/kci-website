@@ -1,0 +1,20 @@
+---
+export interface Props {
+  isBox?: boolean;
+  class?: string;
+}
+
+const { isBox, class: className } = Astro.props;
+---
+
+<section
+  class:list={[
+    {
+      ["p-4 md:p-8"]: isBox,
+      ["pb-4: md:pb-8 last:pb-0"]: !isBox,
+    },
+    className,
+  ]}
+>
+  <slot />
+</section>

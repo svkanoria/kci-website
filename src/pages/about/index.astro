@@ -1,11 +1,51 @@
 ---
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
+import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 
 export const __kci_navTitle = "About Us";
 ---
 
 <AboutPageLayout>
-  <TopHero slot="hero" title="About Us" bgImageSrc="about-us-banner_rnqh7u" />
-  <div>TBD</div>
+  <TopHero slot="hero" title="About Us" bgImageSrc="about-us-banner_ekw5kg" />
+  <Section class="prose max-w-none">
+    <H2>Chairman's Message</H2>
+    <p>
+      Over the years, Kanoria Chemicals & Industries (KCI) has emerged as a
+      leading manufacturer of chemical intermediates catering to the needs of a
+      cross section of Indian industry. As we continue to grow our chemicals
+      business, we have now diversified into other areas such as automotive and
+      industrial electronics, and textiles.
+    </p>
+
+    <p>
+      Our tenet of sustainability and transparency is reflected in the latest
+      ISO certifications for quality, environment and organisational health and
+      safety. KCI has received the CRISIL GVC Level 3 rating for its 'strong'
+      capability of wealth creation for all stakeholders through sound corporate
+      governance practices.
+    </p>
+
+    <p>
+      We have consciously built our product portfolio through global
+      best-in-class technological adaptations and combined with a steady focus
+      on backward and forward integration to emerge as a low cost manufacturer.
+      We also have long term supply commitments with our customers both in India
+      and abroad.
+    </p>
+
+    <p>
+      As a responsible corporate citizen, we have gone much beyond what is
+      required of us by statutes. Our state-of-the-art effluent treatment and
+      its commercial utilisation provide us with one of the greenest environs
+      around a chemical plant.
+    </p>
+
+    <p>
+      I extend an invitation to learn more about Kanoria Chemicals & Industries
+      Limited. Do browse our website. We welcome your comments at
+      info@kanoriachem.com.
+    </p>
+  </Section>
 </AboutPageLayout>
