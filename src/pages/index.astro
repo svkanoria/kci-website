@@ -5,13 +5,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to KCI">
-  <main>
-    <CldImage
-      src="home-banner_xgcvqp"
-      width="2000px"
-      height="800px"
-      alt="KCI banner"
-      transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
-    />
-  </main>
+  <CldImage
+    slot="hero"
+    src="home-banner_xgcvqp"
+    width="2000px"
+    height="800px"
+    alt="KCI banner"
+    transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
+  />
 </Layout>
