@@ -2,6 +2,8 @@
 import { Resize } from "@cloudinary/url-gen/actions";
 import { PageLink } from "../../utils";
 import CldImage from "../CldImage.astro";
+import rightArrow from "../../components/icons/RightArrow.astro";
+import RightArrow from "../../components/icons/RightArrow.astro";
 
 export interface Props {
   pageLink: PageLink;
@@ -10,25 +12,25 @@ export interface Props {
 const { pageLink } = Astro.props;
 ---
 
-<li>
-  <a
-    href={pageLink.href}
-    class="flex items-center px-4 py-3 hover:bg-neutral-100"
-  >
-    {
-      pageLink.thumb && (
-        <CldImage
-          src={pageLink.thumb}
-          width="300px"
-          height="300px"
-          alt={pageLink.title}
-          transform={(image) =>
-            image.resize(Resize.fill().width(300).height(300))
-          }
-          class="flex-shrink-0 w-12 h-12 rounded-full shadow-xl"
-        />
-      )
-    }
-    <h2 class="flex-grow mx-4">{pageLink.title}</h2>
+<li class="flex items-center px-4 py-3">
+  {
+    pageLink.thumb && (
+      <CldImage
+        src={pageLink.thumb}
+        width="300px"
+        height="300px"
+        alt={pageLink.title}
+        transform={(image) =>
+          image.resize(Resize.fill().width(300).height(300))
+        }
+        class="flex-shrink-0 w-12 h-12 rounded-full shadow-xl"
+      />
+    )
+  }
+  <a href={pageLink.href} class="link link-hover flex-grow mx-4">
+    <h2>{pageLink.title}</h2>
+  </a>
+  <a href={pageLink.href} class="btn btn-circle btn-ghost flex-shrink-0">
+    <RightArrow class="w-6 h-6" />
   </a>
 </li>

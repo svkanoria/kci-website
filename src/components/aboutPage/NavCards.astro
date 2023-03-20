@@ -13,7 +13,7 @@ const links = await getPageLinks(
     mapPageLinks(
       (links) =>
         links.map((link) => (
-          <div class="card card-compact bg-base-100 shadow-xl">
+          <div class="card card-compact rounded-none bg-base-100 shadow-xl">
             {link.banner && (
               <figure>
                 <CldImage
