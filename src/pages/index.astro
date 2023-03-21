@@ -1,10 +1,10 @@
 ---
 import { Resize } from "@cloudinary/url-gen/actions";
 import CldImage from "../components/CldImage.astro";
-import Layout from "../layouts/Layout.astro";
+import OneColumnLayout from "../layouts/OneColumnLayout.astro";
 ---
 
-<Layout title="Welcome to KCI">
+<OneColumnLayout title="Welcome to KCI">
   <CldImage
     slot="hero"
     src="home-banner_xgcvqp"
@@ -13,4 +13,4 @@ import Layout from "../layouts/Layout.astro";
     alt="KCI banner"
     transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
   />
-</Layout>
+</OneColumnLayout>
