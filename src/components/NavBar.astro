@@ -1,5 +1,7 @@
 ---
+import { Resize } from "@cloudinary/url-gen/actions";
 import { getPageLink, getPageLinks, mapPageLinks } from "../utils";
+import CldImage from "./CldImage.astro";
 import NavBarItem from "./navBar/NavBarItem.astro";
 import NavBarMenu from "./navBar/NavBarMenu.astro";
 import NavGroupTitle from "./NavGroupTitle.astro";
@@ -42,15 +44,29 @@ const investorsPageLinks = await getPageLinks(
               fill="none"
               viewBox="0 0 24 24"
               class="inline-block w-6 h-6 stroke-current"
-              ><path
+            >
+              <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"></path></svg
-            >
+                d="M4 6h16M4 12h16M4 18h16"
+              >
+              </path>
+            </svg>
           </label>
         </div>
-        <div class="flex-1 px-2 mx-2"><a href="/">KCI</a></div>
+        <div class="flex-1 px-2 mx-2">
+          <a href="/">
+            <CldImage
+              src="kci-logo_syvn0a"
+              width="200px"
+              height="80px"
+              alt="KCI logo"
+              transform={(image) =>
+                image.resize(Resize.fit().width(400).height(160))}
+            />
+          </a>
+        </div>
       </div>
       <div class="navbar-center">
         <div class="flex-none hidden lg:block">

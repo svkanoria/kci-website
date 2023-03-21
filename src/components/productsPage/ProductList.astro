@@ -14,7 +14,7 @@ const links = await getPageLinks(
       (links, group) => (
         <ul>
           <li>
-            <h2>{group}</h2>
+            <h2 class="mb-4">{group}</h2>
           </li>
           {links.map((link) => (
             <ProductListItem pageLink={link} />
