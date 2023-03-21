@@ -8,12 +8,22 @@ const links = await getPageLinks(
 );
 ---
 
-<div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+<div
+  class:list={[
+    "flex flex-wrap justify-center",
+    "gap-8", // Keep synced with w-[...]
+  ]}
+>
   {
     mapPageLinks(
       (links) =>
         links.map((link) => (
-          <div class="card card-compact rounded-none bg-base-100 shadow-xl">
+          <div
+            class:list={[
+              "card card-compact rounded-none bg-base-100 shadow-xl",
+              "md:w-[calc(50%_-_theme(spacing.4))]", // Keep synced with gap-...
+            ]}
+          >
             {link.banner && (
               <figure>
                 <CldImage
