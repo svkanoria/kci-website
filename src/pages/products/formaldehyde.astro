@@ -1,8 +1,13 @@
 ---
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
+import { Content } from "../../content/Formaldehyde.md";
+import TopHero from "../../components/TopHero.astro";
 
 export const __kci_navThumb = "fd-product-thumb_a5f7vt";
 export const __kci_navGroup = "Intermediates";
 ---
 
-<ProductsPageLayout>Formaldehyde</ProductsPageLayout>
+<ProductsPageLayout>
+  <TopHero slot="hero" title="Formaldehyde" />
+  <article class="prose"><Content /></article>
+</ProductsPageLayout>

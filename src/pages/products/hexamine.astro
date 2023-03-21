@@ -1,8 +1,13 @@
 ---
+import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
+import { Content } from "../../content/Hexamine.md";
 
 export const __kci_navThumb = "hexa-product-thumb_d77793";
 export const __kci_navGroup = "Intermediates";
 ---
 
-<ProductsPageLayout>Hexamine</ProductsPageLayout>
+<ProductsPageLayout>
+  <TopHero slot="hero" title="Hexamine" />
+  <article class="prose"><Content /></article>
+</ProductsPageLayout>
