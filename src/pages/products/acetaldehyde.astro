@@ -1,8 +1,13 @@
 ---
+import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
+import { Content } from "../../content/Acetaldehyde.md";
 
 export const __kci_navThumb = "acet-product-thumb_cc39d3";
 export const __kci_navGroup = "Intermediates";
 ---
 
-<ProductsPageLayout>Acetaldehyde</ProductsPageLayout>
+<ProductsPageLayout>
+  <TopHero slot="hero" title="Acetaldehyde" />
+  <article class="prose"><Content /></article>
+</ProductsPageLayout>
