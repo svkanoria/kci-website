@@ -1,5 +1,6 @@
 ---
 import { getPageLinks, mapPageLinks } from "../../utils";
+import Section from "../Section.astro";
 import H2 from "../typography/H2.astro";
 import ProductListItem from "./ProductListItem.astro";
 
@@ -8,20 +9,20 @@ const links = await getPageLinks(
 );
 ---
 
-<div class="grid md:grid-cols-2 gap-8">
+<>
   {
     mapPageLinks(
       (links, group) => (
-        <ul>
-          <li>
-            <h2 class="mb-4">{group}</h2>
-          </li>
-          {links.map((link) => (
-            <ProductListItem pageLink={link} />
-          ))}
-        </ul>
+        <Section>
+          <H2>{group}</H2>
+          <div class="grid md:grid-cols-2">
+            {links.map((link) => (
+              <ProductListItem pageLink={link} />
+            ))}
+          </div>
+        </Section>
       ),
       links
     )
   }
-</div>
+</>
