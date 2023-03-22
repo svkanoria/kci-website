@@ -1,4 +1,5 @@
 ---
+import { flatten } from "ramda";
 import {
   NovolakPowder,
   NovolakSolution,
@@ -8,34 +9,40 @@ import {
 export interface Props<T = NovolakPowder | NovolakSolution> {
   data: ResinTypeData<T>;
   columns: string[];
-  getRowData: (grade: T) => string[];
+  getRowData: (grade: T) => [string, string, string, string];
 }
 
 const { data, columns, getRowData } = Astro.props;
 ---
 
-<table class="table table-compact">
-  <thead>
-    <tr>
-      {columns.map((col) => <th>{col}</th>)}
-    </tr>
-  </thead>
+<div
+  class:list={[
+    "grid",
+    "grid-cols-[1fr_1fr_1fr_minmax(200px,_2fr)]",
+    "lg:grid-cols-[1fr_1fr_1fr_minmax(300px,_2fr)]",
+  ]}
+>
   {
-    data.industries.map((industry) => (
-      <>
-        <tr>
-          <td colspan="4" class="font-bold">
-            {industry.label}
-          </td>
-        </tr>
-        {industry.grades.map((grade) => (
-          <tr>
-            {getRowData(grade).map((cell) => (
-              <td>{cell}</td>
-            ))}
-          </tr>
-        ))}
-      </>
+    columns.map((col) => (
+      <div
+        class:list={[
+          "p-2",
+          "border-b-2 border-solid border-base-300",
+          "font-bold text-sm",
+        ]}
+      >
+        {col}
+      </div>
     ))
   }
-</table>
+  {
+    flatten(
+      data.industries.map((industry) => [
+        <div class="col-span-4 p-2 bg-base-200">{industry.label}</div>,
+        industry.grades.map((grade) =>
+          getRowData(grade).map((cell) => <div class="p-2">{cell}</div>)
+        ),
+      ])
+    )
+  }
+</div>
