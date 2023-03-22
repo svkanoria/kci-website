@@ -1,0 +1,41 @@
+---
+import {
+  NovolakPowder,
+  NovolakSolution,
+  ResinTypeData,
+} from "../../content/resinTableData";
+
+export interface Props<T = NovolakPowder | NovolakSolution> {
+  data: ResinTypeData<T>;
+  columns: string[];
+  getRowData: (grade: T) => string[];
+}
+
+const { data, columns, getRowData } = Astro.props;
+---
+
+<table class="table table-compact">
+  <thead>
+    <tr>
+      {columns.map((col) => <th>{col}</th>)}
+    </tr>
+  </thead>
+  {
+    data.industries.map((industry) => (
+      <>
+        <tr>
+          <td colspan="4" class="font-bold">
+            {industry.label}
+          </td>
+        </tr>
+        {industry.grades.map((grade) => (
+          <tr>
+            {getRowData(grade).map((cell) => (
+              <td>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </>
+    ))
+  }
+</table>
