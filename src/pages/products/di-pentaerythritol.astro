@@ -1,9 +1,14 @@
 ---
+import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
+import { Content } from "../../content/DiPenta.md";
 
 export const __kci_navTitle = "Di-Pentaerythritol";
 export const __kci_navThumb = "dpexx-product-thumb_f1ed16";
 export const __kci_navGroup = "Intermediates";
 ---
 
-<ProductsPageLayout>Di-Pentaerythritol</ProductsPageLayout>
+<ProductsPageLayout>
+  <TopHero slot="hero" title="Di-Pentaerythritol" />
+  <article class="prose"><Content /></article>
+</ProductsPageLayout>
