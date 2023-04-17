@@ -4,6 +4,7 @@ import LightGallery from "../../components/LightGallery.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
+import H2 from "../../components/typography/H2.astro";
 
 export const __kci_navBanner = "careers-banner_ylfipb";
 ---
@@ -31,6 +32,27 @@ export const __kci_navBanner = "careers-banner_ylfipb";
     </article>
   </Section>
   <Section>
+    <div class="hero bg-base-200">
+      <div class="hero-content p-8">
+        <div class="flex flex-col items-center">
+          <H2>Life @ Kanoria Chemicals</H2>
+          <ul class="list-disc list-inside md:columns-2 lg:columns-3">
+            {
+              [
+                "Equality and respect",
+                "Ownership and freedom",
+                "Learning opportunities",
+                "Cutting edge technologies",
+                "A culture of innovation",
+                "Small, close-knit teams",
+              ].map((i) => <li class="pr-1">{i}</li>)
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+  <Section>
     <LightGallery
       images={[
         { src: "control-room_btm04x", alt: "DCS Control Room" },
@@ -44,5 +66,20 @@ export const __kci_navBanner = "careers-banner_ylfipb";
       ]}
       transformThumb={(image) => image.resize(Resize.fit(500, 500))}
     />
+    <div class="py-3"></div>
+  </Section>
+  <Section class="flex flex-col items-center">
+    <div class="max-w-md">
+      <H2>We'd Like to Hear From You</H2>
+      <article class="prose max-w-none">
+        <p>
+          We are always looking for talented, motivated people to join us. To
+          learn more about job opportunities at Kanoria Chemicals, please send
+          us your resume at <a href="mailto:hr@kanoriachem.com"
+            >hr@kanoriachem.com</a
+          >.
+        </p>
+      </article>
+    </div>
   </Section>
 </OneColumnLayout>
