@@ -41,7 +41,9 @@ const { data, columns, getRowData } = Astro.props;
       data.industries.map((industry) => [
         <div class="col-span-4 p-2 bg-base-200">{industry.label}</div>,
         industry.grades.map((grade) =>
-          getRowData(grade).map((cell) => <div class="p-2">{cell}</div>)
+          getRowData(grade).map((cell) => (
+            <div class="p-2 border-b border-solid border-base-400">{cell}</div>
+          ))
         ),
       ])
     )

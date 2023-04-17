@@ -16,8 +16,26 @@ const { novolakPowders, novolakSolutions, resoles } = resinTableData;
 
 <ProductsPageLayout>
   <TopHero slot="hero" title="Phenolic Resins" />
+  <Section class="prose max-w-none">
+    <p>
+      KCI offers a wide range of Phenol Formaldehyde resins for various
+      applications.
+    </p>
+    <p>
+      Our highly automated plant ensures excellent consistency. Through our
+      experienced technical services team, we offer customized product
+      development based on applications and processes.
+    </p>
+  </Section>
   <Section>
     <H2>Novolak Powders</H2>
+    <article class="prose max-w-none mb-4">
+      <p>
+        Premixed with Hexamine. Available in short, medium and long flows. We
+        also offer specialty powders with characteristics such as low or
+        ultra-low free Phenol and dust suppression.
+      </p>
+    </article>
     <ResinTable
       data={novolakPowders}
       columns={["Grade", "Flow", "Hexamine Content (%)", "Features"]}
@@ -32,6 +50,12 @@ const { novolakPowders, novolakSolutions, resoles } = resinTableData;
   </Section>
   <Section>
     <H2>Novolak Solutions</H2>
+    <article class="prose max-w-none mb-4">
+      <p>
+        Available in different solvent compositions, viscosity and solid
+        content.
+      </p>
+    </article>
     <ResinTable
       data={novolakSolutions}
       columns={["Grade", "Viscosity (cP)", "Solid Content (%)", "Features"]}
@@ -46,6 +70,14 @@ const { novolakPowders, novolakSolutions, resoles } = resinTableData;
   </Section>
   <Section>
     <H2>Resoles</H2>
+    <article class="prose max-w-none mb-4">
+      <p>
+        Self-advancing type resins. They are either water-based or
+        solvent-based. Their solvent system depends on processing and curing
+        requirements. These resins can be cured either by heating or by means of
+        a catalyst at ambient temperatures.
+      </p>
+    </article>
     <ResinTable
       data={resoles}
       columns={["Grade", "Viscosity (cP)", "Solid Content (%)", "Features"]}
