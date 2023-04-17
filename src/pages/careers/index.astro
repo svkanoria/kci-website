@@ -1,4 +1,6 @@
 ---
+import { Resize } from "@cloudinary/url-gen/actions";
+import LightGallery from "../../components/LightGallery.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
@@ -27,5 +29,20 @@ export const __kci_navBanner = "careers-banner_ylfipb";
         numerous awards over the years show.
       </p>
     </article>
+  </Section>
+  <Section>
+    <LightGallery
+      images={[
+        { src: "control-room_btm04x", alt: "DCS Control Room" },
+        { src: "instrument-lab_i73ryk", alt: "Instrument Lab" },
+        { src: "lab-ank_lamrbj", alt: "Laboratory" },
+        { src: "volleyball_x3dp7n", alt: "Volleyball @ FIT Kanoria" },
+        { src: "office_dppaw5", alt: "Engineering Office" },
+        { src: "badminton_mgwirk", alt: "Badminton @ FIT Kanoria" },
+        { src: "careers-banner_ylfipb", alt: "Resin Plant Inauguration" },
+        { src: "greenery_s8ylao", alt: "Green Surroundings" },
+      ]}
+      transformThumb={(image) => image.resize(Resize.fit(500, 500))}
+    />
   </Section>
 </OneColumnLayout>

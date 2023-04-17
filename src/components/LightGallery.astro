@@ -1,0 +1,56 @@
+---
+import { CloudinaryImage } from "@cloudinary/url-gen";
+import CldImage from "./CldImage.astro";
+import { cld } from "../utils";
+
+export interface Props {
+  images: { src: string; alt: string }[];
+  transformThumb?: (image: CloudinaryImage) => CloudinaryImage;
+  transformLarge?: (image: CloudinaryImage) => CloudinaryImage;
+}
+
+const { images, transformThumb, transformLarge = (i) => i } = Astro.props;
+---
+
+<div class="lightgallery columns-2 md:columns-3" aria-label="Image Gallery">
+  {
+    images.map((image) => {
+      let imageUrl = transformLarge(
+        cld.image(image.src).format("auto").quality("auto")
+      );
+      if (image.src.startsWith("https://")) {
+        imageUrl.setDeliveryType("fetch");
+      }
+      return (
+        <a href={imageUrl.toURL()} class="m-1">
+          <CldImage
+            src={image.src}
+            width="100%"
+            height="100%"
+            alt={image.alt}
+            transform={transformThumb}
+          />
+        </a>
+      );
+    })
+  }
+</div>
+
+<script>
+  import lightGallery from "lightgallery";
+  import lgThumbnail from "lightgallery/plugins/thumbnail";
+  import lgZoom from "lightgallery/plugins/zoom";
+  import "lightgallery/css/lightgallery.css";
+  import "lightgallery/css/lg-thumbnail.css";
+  import "lightgallery/css/lg-zoom.css";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.getElementsByClassName("lightgallery");
+    for (let element of elements) {
+      lightGallery(element as HTMLElement, {
+        plugins: [lgThumbnail, lgZoom],
+        speed: 500,
+      });
+    }
+  });
+</script>
