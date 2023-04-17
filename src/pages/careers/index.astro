@@ -1,0 +1,31 @@
+---
+import Section from "../../components/Section.astro";
+import TopHero from "../../components/TopHero.astro";
+import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
+
+export const __kci_navBanner = "careers-banner_ylfipb";
+---
+
+<OneColumnLayout title="Careers - Kanoria Chemicals">
+  <TopHero slot="hero" title="Careers" bgImageSrc={__kci_navBanner} />
+  <Section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <h2 class="text-4xl text-primary">
+      Working at Kanoria Chemicals means confronting challenges with innovation,
+      dedication, and passion.
+    </h2>
+    <article class="prose max-w-none">
+      <p>
+        We make building blocks for some of the most ubiquitous infrastructure
+        needed in our daily lives, which means our products make their way to
+        over a billion people.
+      </p>
+      <p>
+        We see this as strong motivation to not only do our best, but to always
+        push our boundaries. This means working with a talented, close-knit
+        group of people on cutting edge technologies and innovative products. Of
+        course, with the utmost care for safety and the environment, as our
+        numerous awards over the years show.
+      </p>
+    </article>
+  </Section>
+</OneColumnLayout>

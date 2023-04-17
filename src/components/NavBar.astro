@@ -29,6 +29,10 @@ const investorsPageLink = await getPageLink(
 const investorsPageLinks = await getPageLinks(
   import.meta.glob("../pages/investors/*.{astro,md,mdx,html}")
 );
+
+const careersPageLink = await getPageLink(
+  import.meta.glob("../pages/careers/index.astro")
+);
 ---
 
 <div class="drawer">
@@ -104,6 +108,12 @@ const investorsPageLinks = await getPageLinks(
                 overviewLinkHref={investorsPageLink.href}
               />
             </li>
+            <li tabindex="0">
+              <NavBarItem
+                pageLink={careersPageLink}
+                className="justify-between"
+              />
+            </li>
           </ul>
         </div>
       </div>
@@ -177,6 +187,7 @@ const investorsPageLinks = await getPageLinks(
           )
         }
       </ul>
+      <li><NavBarItem pageLink={careersPageLink} /></li>
     </ul>
   </div>
 </div>
