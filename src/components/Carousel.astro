@@ -41,7 +41,7 @@ const { items, density = "regular" } = Astro.props;
               <div class="py-4 h-full">
                 <div class="card rounded-none bg-base-100 shadow-md h-full">
                   <div class="card-body">
-                    <span class="text-xs text-gray-600">
+                    <span class="text-xs text-stone-600">
                       {dayjs(item.news.timestamp).format("MMMM YYYY")}
                     </span>
                     <h2 class="card-title">{item.news.headline}</h2>
@@ -68,11 +68,11 @@ const { items, density = "regular" } = Astro.props;
   }
 
   .carousel__pagination__page {
-    @apply bottom-[-32px] w-2 h-2 bg-gray-300;
+    @apply bottom-[-32px] w-2 h-2 bg-stone-300;
   }
 
   .carousel__pagination__page.is-active {
-    @apply bg-gray-500;
+    @apply bg-stone-500;
   }
 </style>
 

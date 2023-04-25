@@ -17,6 +17,22 @@ import H2 from "../components/typography/H2.astro";
     transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
   />
   <Section>
+    <div class="flex flex-col md:flex-row items-center py-12">
+      <p class="md:mr-8 text-xl md:text-3xl lg:text-4xl text-stone-500">
+        Kanoria Chemicals and Industries Ltd. is a leading manufacturer of bulk
+        and specialty chemicals for the infrastructure and construction
+        industries.
+      </p>
+      <CldImage
+        class="w-32 h-32 md:w-44 md:h-44"
+        src="responsible-care-logo_mlujln"
+        width="180px"
+        height="180px"
+        alt="Responsible Care logo"
+      />
+    </div>
+  </Section>
+  <Section>
     <H2>Latest News</H2>
     <News />
   </Section>
