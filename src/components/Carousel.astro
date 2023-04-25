@@ -37,11 +37,11 @@ const { items, density = "regular" } = Astro.props;
                 </div>
               </div>
             ) : "message" in item ? (
-              <div class="py-4">
-                <div class="card rounded-none bg-base-100 shadow-md">
+              <div class="py-4 h-full">
+                <div class="card rounded-none bg-base-100 shadow-md h-full">
                   <div class="card-body">
                     <h2 class="card-title">{item.message.title}</h2>
-                    <p>{item.message.detail}</p>
+                    <p class="line-clamp-3">{item.message.detail}</p>
                   </div>
                 </div>
               </div>
