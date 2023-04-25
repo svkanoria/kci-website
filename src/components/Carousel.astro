@@ -8,7 +8,8 @@ export interface Props {
 const { images } = Astro.props;
 ---
 
-<section class="splide" aria-label="Image gallery">
+<!-- my-carousel used to avoid conflict with daisyUI carousel -->
+<section class="splide my-carousel" aria-label="Image gallery">
   <div class="splide__track">
     <ul class="splide__list">
       {
@@ -34,15 +35,15 @@ const { images } = Astro.props;
 </section>
 
 <style is:global>
-  .splide__arrow {
-    @apply w-12 h-12 bg-base-300 border-2 border-solid border-primary;
+  .carousel__arrow {
+    @apply w-12 h-12 bg-base-300 shadow-lg;
   }
 
-  .splide__pagination__page {
+  .carousel__pagination__page {
     @apply bottom-[-32px] w-2 h-2 bg-gray-300;
   }
 
-  .splide__pagination__page.is-active {
+  .carousel__pagination__page.is-active {
     @apply bg-gray-500;
   }
 </style>
@@ -52,7 +53,7 @@ const { images } = Astro.props;
   import "@splidejs/splide/css";
 
   document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.getElementsByClassName("splide");
+    const elements = document.getElementsByClassName("my-carousel");
     for (let element of elements) {
       new Splide(element as HTMLElement, {
         type: "loop",
@@ -62,6 +63,16 @@ const { images } = Astro.props;
           640: {
             padding: "0",
           },
+        },
+        classes: {
+          // Add classes for arrows.
+          arrows: "splide__arrows carousel__arrows",
+          arrow: "splide__arrow carousel__arrow",
+          prev: "splide__arrow--prev carousel__arrow--prev",
+          next: "splide__arrow--next carousel__arrow--next",
+          // Add classes for pagination.
+          pagination: "splide__pagination carousel__pagination", // container
+          page: "splide__pagination__page carousel__pagination__page", // each button
         },
       }).mount();
     }
