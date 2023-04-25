@@ -1,10 +1,11 @@
 ---
+import dayjs from "dayjs";
 import CldImage from "./CldImage.astro";
 
 export interface Props {
   items: (
     | { image: { src: string; alt: string } }
-    | { message: { title: string; detail: string } }
+    | { news: { headline: string; body: string; timestamp: Date } }
   )[];
   density?: "regular" | "dense";
 }
@@ -36,12 +37,18 @@ const { items, density = "regular" } = Astro.props;
                   {item.image.alt}
                 </div>
               </div>
-            ) : "message" in item ? (
+            ) : "news" in item ? (
               <div class="py-4 h-full">
                 <div class="card rounded-none bg-base-100 shadow-md h-full">
                   <div class="card-body">
-                    <h2 class="card-title">{item.message.title}</h2>
-                    <p class="line-clamp-3">{item.message.detail}</p>
+                    <span class="text-xs text-gray-600">
+                      {dayjs(item.news.timestamp).format("MMMM YYYY")}
+                    </span>
+                    <h2 class="card-title">{item.news.headline}</h2>
+                    <p class="line-clamp-3">{item.news.body}</p>
+                    <div class="card-actions justify-end">
+                      <button class="btn btn-ghost btn-sm">Read More</button>
+                    </div>
                   </div>
                 </div>
               </div>

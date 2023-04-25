@@ -1,0 +1,16 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import Carousel from "../Carousel.astro";
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get("cdn/stories/news", {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const items = data.story.content.items.slice(0, 4).map((item) => ({
+  news: item,
+}));
+---
+
+<Carousel density="dense" items={items} />
