@@ -3,7 +3,7 @@ import { Resize } from "@cloudinary/url-gen/actions";
 import CldImage from "../components/CldImage.astro";
 import OneColumnLayout from "../layouts/OneColumnLayout.astro";
 import Section from "../components/Section.astro";
-import News from "../components/homePage/News.astro";
+import Carousel from "../components/Carousel.astro";
 ---
 
 <OneColumnLayout title="Welcome to KCI">
@@ -16,6 +16,23 @@ import News from "../components/homePage/News.astro";
     transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
   />
   <Section>
-    <News />
+    <Carousel
+      density="dense"
+      items={[
+        {
+          message: {
+            title: "KCI announces 300 MTPD Formaldehyde expansion",
+            detail:
+              "KCI will expand its Formaldehyde capacity in Ankleshwar, Gujarat by 300 MTPD to cater to growing demand in the Western region. The expansion is expected to be complete in FY 2025.",
+          },
+        },
+        {
+          message: {
+            title: "KCI commissions Phenol Resin plant at Ankleshwar",
+            detail: "Detail",
+          },
+        },
+      ]}
+    />
   </Section>
 </OneColumnLayout>
