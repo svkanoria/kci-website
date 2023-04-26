@@ -62,49 +62,51 @@ console.log(">>>", corporateGroupPageLink);
   <Section isBox class="bg-stone-50">
     <BoundedContainer>
       <H2>Latest News</H2>
-      <div class="pb-12">
-        <News />
-      </div>
+      <News />
     </BoundedContainer>
   </Section>
-  <SplitImageSection
-    image={{
-      src: "water-reservoir_kdxpoq",
-      alt: sustainabilityPageLink.title,
-    }}
-  >
-    <div class="flex flex-col">
-      <H2>{sustainabilityPageLink.title}</H2>
-      <div class="prose">
-        <p>
-          {sustainabilityPageLink.desc}
-        </p>
-      </div>
-      <div class="pt-8">
-        <a href={sustainabilityPageLink.href} class="btn btn-primary">
-          Awards and Recognition
-        </a>
-      </div>
-    </div>
-  </SplitImageSection>
-  <SplitImageSection
-    image={{
-      src: corporateGroupPageLink.banner,
-      alt: corporateGroupPageLink.title,
-    }}
-  >
-    <div class="flex flex-col">
-      <H2>{corporateGroupPageLink.title}</H2>
-      <div class="prose">
-        <p>
-          {corporateGroupPageLink.desc}
-        </p>
-      </div>
-      <div class="pt-8">
-        <a href={corporateGroupPageLink.href} class="btn btn-primary">
-          About the Group
-        </a>
-      </div>
-    </div>
-  </SplitImageSection>
+  <Section isBox>
+    <BoundedContainer>
+      <SplitImageSection
+        image={{
+          src: "water-reservoir_kdxpoq",
+          alt: sustainabilityPageLink.title,
+        }}
+      >
+        <div class="flex flex-col">
+          <H2>{sustainabilityPageLink.title}</H2>
+          <div class="prose">
+            <p>
+              {sustainabilityPageLink.desc}
+            </p>
+          </div>
+          <div class="pt-8">
+            <a href={sustainabilityPageLink.href} class="btn btn-primary">
+              Awards and Recognition
+            </a>
+          </div>
+        </div>
+      </SplitImageSection>
+      <SplitImageSection
+        image={{
+          src: corporateGroupPageLink.banner,
+          alt: corporateGroupPageLink.title,
+        }}
+      >
+        <div class="flex flex-col">
+          <H2>{corporateGroupPageLink.title}</H2>
+          <div class="prose">
+            <p>
+              {corporateGroupPageLink.desc}
+            </p>
+          </div>
+          <div class="pt-8">
+            <a href={corporateGroupPageLink.href} class="btn btn-primary">
+              About the Kanoria Group
+            </a>
+          </div>
+        </div>
+      </SplitImageSection>
+    </BoundedContainer>
+  </Section>
 </Layout>
