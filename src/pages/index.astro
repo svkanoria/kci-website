@@ -1,51 +1,55 @@
 ---
 import { Resize } from "@cloudinary/url-gen/actions";
 import CldImage from "../components/CldImage.astro";
-import OneColumnLayout from "../layouts/OneColumnLayout.astro";
+import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import News from "../components/homePage/News.astro";
 import H2 from "../components/typography/H2.astro";
+import BoundedContainer from "../components/BoundedContainer.astro";
 ---
 
-<OneColumnLayout title="Welcome to KCI">
+<Layout isUnbounded title="Welcome to KCI">
   <CldImage
-    slot="hero"
     src="home-banner_xgcvqp"
     width="2000px"
     height="800px"
     alt="KCI banner"
     transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
   />
-  <Section>
-    <div class="flex flex-col md:flex-row items-center py-12">
-      <div class="mb-8 md:mb-0 md:mr-12">
-        <p class="text-xl md:text-3xl lg:text-4xl text-stone-500">
-          Kanoria Chemicals and Industries Ltd.<br />is a leading manufacturer
-          of bulk and specialty chemicals for the infrastructure and
-          construction sectors.
-        </p>
-        <div class="h-6"></div>
-        <p class="prose max-w-none text-stone-400">
-          Kanoria Chemicals and Industries Ltd. is a proud holder of the <a
-            href="https://icca-chem.org/focus/responsible-care/"
-            target="_blank">Responsible Care</a
-          > logo.
-        </p>
+  <Section isBox>
+    <BoundedContainer>
+      <div class="flex flex-col md:flex-row items-center py-12">
+        <div class="mb-8 md:mb-0 md:mr-12">
+          <p class="text-xl md:text-3xl lg:text-4xl text-stone-500">
+            Kanoria Chemicals and Industries Ltd.<br />is a leading manufacturer
+            of bulk and specialty chemicals for the infrastructure and
+            construction sectors.
+          </p>
+          <div class="h-6"></div>
+          <p class="prose max-w-none text-stone-400">
+            Kanoria Chemicals and Industries Ltd. is a proud holder of the <a
+              href="https://icca-chem.org/focus/responsible-care/"
+              target="_blank">Responsible Care</a
+            > logo.
+          </p>
+        </div>
+        <div
+          class="shrink-0 w-44 h-44 md:w-60 md:h-60 p-8 md:p-10 shadow-md rounded-full border-2"
+        >
+          <CldImage
+            src="responsible-care-logo_mlujln"
+            width="100%"
+            height="100%"
+            alt="Responsible Care logo"
+          />
+        </div>
       </div>
-      <div
-        class="shrink-0 w-44 h-44 md:w-60 md:h-60 p-8 md:p-10 shadow-md rounded-full border-2"
-      >
-        <CldImage
-          src="responsible-care-logo_mlujln"
-          width="100%"
-          height="100%"
-          alt="Responsible Care logo"
-        />
-      </div>
-    </div>
+    </BoundedContainer>
   </Section>
-  <Section>
-    <H2>Latest News</H2>
-    <News />
+  <Section isBox class="bg-stone-100">
+    <BoundedContainer>
+      <H2>Latest News</H2>
+      <News />
+    </BoundedContainer>
   </Section>
-</OneColumnLayout>
+</Layout>
