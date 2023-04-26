@@ -39,7 +39,7 @@ const { items, density = "regular" } = Astro.props;
               </div>
             ) : "news" in item ? (
               <div class="py-4 h-full">
-                <div class="card rounded-none bg-base-100 shadow-md h-full">
+                <div class="card rounded-none bg-base-100 shadow-lg h-full border">
                   <div class="card-body">
                     <span class="text-xs text-stone-600">
                       {dayjs(item.news.timestamp).format("MMMM YYYY")}
