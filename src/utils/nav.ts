@@ -10,7 +10,7 @@ export interface PageLink {
 }
 
 const getLinkHref = (path: string): string =>
-  path.replace(/.*pages\//, "/").replace(/(\/index)?\..*$/, "");
+  path.replace(/.*pages\//, "/").replace(/(\/index)?\.[^.]*$/, "");
 
 const getLinkTitle = (href: string): string =>
   href
