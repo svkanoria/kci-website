@@ -7,6 +7,15 @@ import News from "../components/homePage/News.astro";
 import H2 from "../components/typography/H2.astro";
 import BoundedContainer from "../components/BoundedContainer.astro";
 import SplitImageSection from "../components/SplitImageSection.astro";
+import { getPageLink } from "../utils";
+
+const sustainabilityPageLink = await getPageLink(
+  import.meta.glob("./about/sustainability.astro")
+);
+
+const corporateGroupPageLink = await getPageLink(
+  import.meta.glob("./about/corporate-group.astro")
+);
 ---
 
 <Layout isUnbounded title="Welcome to KCI">
@@ -49,7 +58,7 @@ import SplitImageSection from "../components/SplitImageSection.astro";
       </div>
     </BoundedContainer>
   </Section>
-  <Section isBox>
+  <Section isBox class="bg-stone-50">
     <BoundedContainer>
       <H2>Latest News</H2>
       <div class="pb-12">
@@ -58,19 +67,43 @@ import SplitImageSection from "../components/SplitImageSection.astro";
     </BoundedContainer>
   </Section>
   <SplitImageSection
-    image={{ src: "water-reservoir_kdxpoq", alt: "Sustainability" }}
+    image={{
+      src: "water-reservoir_kdxpoq",
+      alt: sustainabilityPageLink.title,
+    }}
   >
-    <H2>Sustainability</H2>
-    <div class="prose">
-      <p>
-        A focus on sustainability is an inseparable part of our strategy and
-        operations. We go much beyond what is required of us by statutes.
-      </p>
-      <p>
-        We are one of the few Responsible Care companies in India, and our
-        sustainability efforts have gained recognition from the industry over
-        the years.
-      </p>
+    <div class="flex flex-col">
+      <H2>{sustainabilityPageLink.title}</H2>
+      <div class="prose">
+        <p>
+          {sustainabilityPageLink.desc}
+        </p>
+      </div>
+      <div class="pt-8">
+        <a href={sustainabilityPageLink.href} class="btn btn-primary">
+          Awards and Recognition
+        </a>
+      </div>
+    </div>
+  </SplitImageSection>
+  <SplitImageSection
+    image={{
+      src: corporateGroupPageLink.banner,
+      alt: corporateGroupPageLink.title,
+    }}
+  >
+    <div class="flex flex-col">
+      <H2>{corporateGroupPageLink.title}</H2>
+      <div class="prose">
+        <p>
+          {corporateGroupPageLink.desc}
+        </p>
+      </div>
+      <div class="pt-8">
+        <a href={corporateGroupPageLink.href} class="btn btn-primary">
+          About the Group
+        </a>
+      </div>
     </div>
   </SplitImageSection>
 </Layout>
