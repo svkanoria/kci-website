@@ -6,6 +6,7 @@ import Section from "../components/Section.astro";
 import News from "../components/homePage/News.astro";
 import H2 from "../components/typography/H2.astro";
 import BoundedContainer from "../components/BoundedContainer.astro";
+import SplitImageSection from "../components/SplitImageSection.astro";
 ---
 
 <Layout isUnbounded title="Welcome to KCI">
@@ -49,7 +50,25 @@ import BoundedContainer from "../components/BoundedContainer.astro";
   <Section isBox class="bg-stone-100">
     <BoundedContainer>
       <H2>Latest News</H2>
-      <News />
+      <div class="pb-8">
+        <News />
+      </div>
     </BoundedContainer>
   </Section>
+  <SplitImageSection
+    image={{ src: "water-reservoir_kdxpoq", alt: "Sustainability" }}
+  >
+    <H2>Sustainability</H2>
+    <div class="prose">
+      <p>
+        A focus on sustainability is an inseparable part of our strategy and
+        operations. We go much beyond what is required of us by statutes.
+      </p>
+      <p>
+        We are one of the few Responsible Care companies in India, and our
+        sustainability efforts have gained recognition from the industry over
+        the years.
+      </p>
+    </div>
+  </SplitImageSection>
 </Layout>
