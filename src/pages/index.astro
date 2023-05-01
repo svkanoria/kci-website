@@ -9,6 +9,7 @@ import BoundedContainer from "../components/BoundedContainer.astro";
 import SplitImageSection from "../components/SplitImageSection.astro";
 import { getPageLink } from "../utils";
 import ProductList from "../components/homePage/ProductList.astro";
+import bondIcon from "../assets/bond-icon.svg";
 
 const sustainabilityPageLink = await getPageLink(
   import.meta.glob("./about/sustainability.astro")
@@ -20,13 +21,32 @@ const corporateGroupPageLink = await getPageLink(
 ---
 
 <Layout isUnbounded title="Welcome to KCI">
-  <CldImage
-    src="home-banner_xgcvqp"
-    width="2000px"
-    height="800px"
-    alt="KCI banner"
-    transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
-  />
+  <div class="relative">
+    <CldImage
+      src="home-banner_xgcvqp"
+      width="2000px"
+      height="800px"
+      alt="KCI banner"
+      transform={(image) => image.resize(Resize.fill().width(2000).height(800))}
+      class="min-h-[300px] object-cover"
+    />
+    <div
+      class="flex flex-col justify-end items-start home-banner-overlay absolute top-0 right-0 md:right-[40%] bottom-0 left-0 bg-black bg-opacity-25"
+    >
+      <img
+        src={bondIcon}
+        alt="Chemistry of values and value additions"
+        class="inline-block h-1/2 lg:h-2/3 ml-8 -mb-16 opacity-10"
+      />
+      <div
+        class="m-12 mt-4 lg:m-16 lg:mt-4 text-3xl md:text-4xl lg:text-5xl text-white opacity-90 shadow-lg"
+      >
+        Chemistry of Values
+        <br />
+        and Value Additions
+      </div>
+    </div>
+  </div>
   <Section isBox>
     <BoundedContainer>
       <div class="flex flex-col md:flex-row items-center py-12">
@@ -115,4 +135,12 @@ const corporateGroupPageLink = await getPageLink(
       </SplitImageSection>
     </BoundedContainer>
   </Section>
+
+  <style>
+    .home-banner-overlay {
+      @screen md {
+        clip-path: polygon(0 0, 68% 0, 100% 100%, 0% 100%);
+      }
+    }
+  </style>
 </Layout>
