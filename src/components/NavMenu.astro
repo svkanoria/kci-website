@@ -1,5 +1,5 @@
 ---
-import { mapPageLinks, PageLink } from "../utils";
+import { mapPageLinks, PageLink, removeTrailingSlash } from "../utils";
 import NavGroupTitle from "./NavGroupTitle.astro";
 
 interface Props {
@@ -21,7 +21,12 @@ const currentPath = new URL(Astro.request.url).pathname;
             <li>
               <a
                 href={link.href}
-                class={currentPath === link.href ? "active" : ""}
+                class={
+                  removeTrailingSlash(currentPath) ===
+                  removeTrailingSlash(link.href)
+                    ? "active"
+                    : ""
+                }
               >
                 {link.title}
               </a>

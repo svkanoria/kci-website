@@ -1,5 +1,5 @@
 ---
-import { PageLink } from "../../utils";
+import { PageLink, removeTrailingSlash } from "../../utils";
 
 interface Props {
   pageLink: PageLink;
@@ -12,7 +12,7 @@ const { pageLink, className, noHref, activeIfExact } = Astro.props;
 
 const currentPath = new URL(Astro.request.url).pathname;
 const active = activeIfExact
-  ? currentPath === pageLink.href
+  ? removeTrailingSlash(currentPath) === removeTrailingSlash(pageLink.href)
   : currentPath.match(pageLink.href);
 ---
 
