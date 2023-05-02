@@ -15,6 +15,10 @@ const sustainabilityPageLink = await getPageLink(
   import.meta.glob("./about/sustainability.astro")
 );
 
+const socialRespPageLink = await getPageLink(
+  import.meta.glob("./about/social-responsibility.astro")
+);
+
 const corporateGroupPageLink = await getPageLink(
   import.meta.glob("./about/corporate-group.astro")
 );
@@ -93,6 +97,8 @@ const corporateGroupPageLink = await getPageLink(
         image={{
           src: "water-reservoir_kdxpoq",
           alt: sustainabilityPageLink.title,
+          transform: (image) =>
+            image.resize(Resize.fill().width(800).height(500)),
         }}
       >
         <div class="flex flex-col">
@@ -103,7 +109,29 @@ const corporateGroupPageLink = await getPageLink(
             </p>
           </div>
           <div class="pt-8">
-            <a href={sustainabilityPageLink.href} class="btn btn-primary">
+            <a href={sustainabilityPageLink.href} class="btn btn-outline">
+              Read More
+            </a>
+          </div>
+        </div>
+      </SplitImageSection>
+      <SplitImageSection
+        image={{
+          src: socialRespPageLink.banner,
+          alt: socialRespPageLink.title,
+          transform: (image) =>
+            image.resize(Resize.fill().width(800).height(500)),
+        }}
+      >
+        <div class="flex flex-col">
+          <H2>{socialRespPageLink.title}</H2>
+          <div class="prose">
+            <p>
+              {socialRespPageLink.desc}
+            </p>
+          </div>
+          <div class="pt-8">
+            <a href={socialRespPageLink.href} class="btn btn-outline">
               Read More
             </a>
           </div>
@@ -113,6 +141,8 @@ const corporateGroupPageLink = await getPageLink(
         image={{
           src: corporateGroupPageLink.banner,
           alt: corporateGroupPageLink.title,
+          transform: (image) =>
+            image.resize(Resize.fill().width(800).height(500)),
         }}
       >
         <div class="flex flex-col">
@@ -123,7 +153,7 @@ const corporateGroupPageLink = await getPageLink(
             </p>
           </div>
           <div class="pt-8">
-            <a href={corporateGroupPageLink.href} class="btn btn-primary">
+            <a href={corporateGroupPageLink.href} class="btn btn-outline">
               Read More
             </a>
           </div>
