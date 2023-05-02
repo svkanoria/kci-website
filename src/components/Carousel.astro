@@ -62,16 +62,20 @@ const { items, density = "regular" } = Astro.props;
   </div>
 </section>
 
+<!-- Note prepending of 'button.'. This is to increase specificity. 
+  Without this, when built, these styles are not applied because they are 
+  overidden by something more specific. When in dev mode, this overriding 
+  does not happen for some reason. -->
 <style is:global>
-  .carousel__arrow {
+  button.carousel__arrow {
     @apply w-12 h-12 bg-base-300 shadow-lg;
   }
 
-  .carousel__pagination__page {
+  button.carousel__pagination__page {
     @apply bottom-[-32px] w-2 h-2 bg-stone-300;
   }
 
-  .carousel__pagination__page.is-active {
+  button.carousel__pagination__page.is-active {
     @apply bg-stone-500;
   }
 </style>
