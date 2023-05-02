@@ -1,0 +1,45 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+
+export interface Props {
+  story: string;
+}
+
+const { story } = Astro.props;
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get(`cdn/stories/${story}`, {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const files = data.story.content.files.map((file) => ({
+  name: file.name,
+  url: file.asset.filename,
+}));
+---
+
+<div class="overflow-x-auto">
+  <table class="table table-compact w-full">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>File</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        files.map((file) => (
+          <tr>
+            <td>{file.name}</td>
+            <td>
+              <a href={file.url} target="_blank" class="btn btn-xs btn-outline">
+                Download
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

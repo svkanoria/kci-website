@@ -17,6 +17,8 @@ const { data, columns, getRowData } = Astro.props;
 
 <div
   class:list={[
+    "w-full max-w-full",
+    "overflow-x-auto",
     "grid",
     "grid-cols-[1fr_1fr_1fr_minmax(200px,_2fr)]",
     "lg:grid-cols-[1fr_1fr_1fr_minmax(300px,_2fr)]",

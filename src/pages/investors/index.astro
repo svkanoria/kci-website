@@ -1,7 +1,12 @@
 ---
+import CmsFileTable from "../../components/CmsFileTable.astro";
+import H2 from "../../components/typography/H2.astro";
 import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
 
 export const __kci_navTitle = "Investors";
 ---
 
-<InvestorsPageLayout>Investors</InvestorsPageLayout>
+<InvestorsPageLayout>
+  <H2>Communication to Investors</H2>
+  <CmsFileTable story="investor-communications" />
+</InvestorsPageLayout>
