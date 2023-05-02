@@ -12,7 +12,7 @@ export interface Props {
 const { images, transformThumb, transformLarge = (i) => i } = Astro.props;
 ---
 
-<div class="lightgallery columns-2 md:columns-3" aria-label="Image Gallery">
+<div class="lightgallery md:columns-3" aria-label="Image Gallery">
   {
     images.map((image) => {
       let imageUrl = transformLarge(
@@ -22,7 +22,7 @@ const { images, transformThumb, transformLarge = (i) => i } = Astro.props;
         imageUrl.setDeliveryType("fetch");
       }
       return (
-        <a href={imageUrl.toURL()} class="m-1">
+        <a href={imageUrl.toURL()} class="block mb-4">
           <CldImage
             src={image.src}
             width="100%"
