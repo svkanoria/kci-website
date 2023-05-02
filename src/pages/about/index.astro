@@ -1,7 +1,4 @@
 ---
-import { Resize } from "@cloudinary/url-gen/actions";
-import NavCards from "../../components/aboutPage/NavCards.astro";
-import CldImage from "../../components/CldImage.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import H2 from "../../components/typography/H2.astro";
@@ -14,7 +11,64 @@ export const __kci_navBanner = "about-us-banner_ekw5kg";
 <AboutPageLayout>
   <TopHero slot="hero" title={__kci_navTitle} bgImageSrc={__kci_navBanner} />
   <Section>
-    <article class="prose max-w-none"></article>
+    <article class="prose max-w-none">
+      <p>
+        Founded in 1960, Kanoria Chemicals & Industries Ltd. (KCI) is a leading
+        manufacturer of chemical intermediates and specialties in India. Apart
+        from chemicals, we have diversified business interests in automotive and
+        industrial electronics and textiles.
+      </p>
+      <h2>Our Values</h2>
+      <p>
+        KCI steadfastly believes in the core values of sustainability,
+        transparency, ethical business practices, and maintaining high standards
+        of corporate governance. Over the years, our efforts in sustainability
+        have been recognized and awarded several times. We are one of the few
+        companies in India to be awarded the <a
+          href="https://icca-chem.org/focus/responsible-care/"
+          target="_blank">Responsible Care</a
+        > certification.
+      </p>
+      <h2>Market Leadership</h2>
+      <p>
+        KCI has a portfolio of seven products that find application in the
+        infrastructure and construction industries, with market leadership in
+        three and substantial shares in the others.
+      </p>
+      <p>
+        We operate three chemical manufacturing facilities, located at
+        Ankleshwar (Gujarat), Visakhapatnam (north Andhra Pradesh) and Naidupeta
+        (our newest facility, in south Andhra Pradesh). All our facilities have
+        ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 and RC 14001:2015
+        certifications.
+      </p>
+      <p>
+        Our plants operate with cutting edge technology, with a strong focus on
+        process and product R&D. We are strategically located near ports and
+        consumption centres to minimize logistics costs. This enables us to be a
+        high quality, low cost manufacturer.
+      </p>
+      <h2>Other Businesses</h2>
+      <p>
+        As it continues to expand its chemicals manufacturing business, KCI has
+        diversified into other businesses areas.
+      </p>
+      <p>
+        In the year 2012, KCI acquired APAG Holding AG, based in Switzerland.
+        APAG is engaged in development and manufacturing of electronic and
+        mechatronic modules and control devices for the automotive, consumer
+        goods, power tool electronics and building automation industries. The
+        designing and engineering facility of the company is located in
+        Switzerland, whereas the manufacturing facilities are located in the
+        Czech Republic and in Canada.
+      </p>
+      <p>
+        In another diversification initiative, KCI incorporated a subsidiary
+        company, Kanoria Africa Textiles Plc in Ethiopia, Africa, where it has
+        set up a manufacturing plant to initially produce 12 million metres of
+        Denim per annum.
+      </p>
+    </article>
   </Section>
   <!-- Deleting NavCards section for now. -->
   <!-- TODO Decide whether to keep the NavCards section on the about us page -->
