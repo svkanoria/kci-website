@@ -4,14 +4,15 @@ import NavGroupTitle from "./NavGroupTitle.astro";
 
 interface Props {
   pageLinks: Record<string, PageLink[]>;
+  isCompact?: boolean;
 }
 
-const { pageLinks } = Astro.props;
+const { pageLinks, isCompact } = Astro.props;
 
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<ul class="menu bg-base-100">
+<ul class:list={["menu bg-base-100", { "menu-compact": isCompact }]}>
   {
     mapPageLinks(
       (links, group) => (
