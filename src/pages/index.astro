@@ -49,20 +49,14 @@ const corporateGroupPageLink = await getPageLink(
   </div>
   <Section isBox>
     <BoundedContainer>
-      <div class="flex flex-col md:flex-row items-center py-12">
+      <div class="flex flex-col md:flex-row items-center md:py-8">
         <div class="mb-8 md:mb-0 md:mr-12">
-          <p class="text-xl md:text-3xl lg:text-4xl text-stone-500">
+          <p class="mb-8 text-xl md:text-3xl lg:text-4xl text-stone-500">
             Kanoria Chemicals and Industries Ltd.<br />is a leading manufacturer
             of bulk and specialty chemicals for the infrastructure and
             construction sectors.
           </p>
-          <div class="h-6"></div>
-          <p class="prose max-w-none text-stone-400">
-            Kanoria Chemicals and Industries Ltd. is a proud holder of the <a
-              href="https://icca-chem.org/focus/responsible-care/"
-              target="_blank">Responsible Care</a
-            > logo.
-          </p>
+          <a href="/about-us" class="btn btn-primary min-w-[150px]">About Us</a>
         </div>
         <div
           class="shrink-0 w-40 h-40 md:w-52 md:h-52 p-6 md:p-8 rounded-full border border-green-600"
@@ -79,19 +73,21 @@ const corporateGroupPageLink = await getPageLink(
       </div>
     </BoundedContainer>
   </Section>
-  <Section isBox class="bg-stone-50">
+  <Section isBox class="bg-stone-100">
     <BoundedContainer>
       <H2>Latest News</H2>
       <News />
+      <div class="h-6"></div>
     </BoundedContainer>
   </Section>
   <Section isBox>
     <BoundedContainer>
       <H2>Our Products</H2>
       <ProductList />
+      <a href="/products" class="btn btn-primary">All Products</a>
     </BoundedContainer>
   </Section>
-  <Section isBox class="bg-stone-50">
+  <Section isBox class="bg-stone-100">
     <BoundedContainer>
       <SplitImageSection
         image={{
@@ -108,7 +104,7 @@ const corporateGroupPageLink = await getPageLink(
           </div>
           <div class="pt-8">
             <a href={sustainabilityPageLink.href} class="btn btn-primary">
-              Awards and Recognition
+              Read More
             </a>
           </div>
         </div>
@@ -128,7 +124,7 @@ const corporateGroupPageLink = await getPageLink(
           </div>
           <div class="pt-8">
             <a href={corporateGroupPageLink.href} class="btn btn-primary">
-              About the Kanoria Group
+              Read More
             </a>
           </div>
         </div>
