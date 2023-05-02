@@ -27,10 +27,10 @@ if (image && bgImageSrc.startsWith("https://")) {
 ---
 
 <section
-  class="hero flex-shrink-0 h-48 md:h-80 bg-stone-100"
+  class="hero flex-shrink-0 h-48 md:h-96 bg-stone-100"
   {...image ? { style: `background-image: url(${image.toURL()});` } : {}}
 >
-  {image && <div class="hero-overlay bg-opacity-70" />}
+  {image && <div class="hero-overlay" />}
   <div class="hero-content">
     <h1 class:list={["text-5xl", { ["text-white"]: image }]}>
       {title}
