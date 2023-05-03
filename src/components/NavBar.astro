@@ -26,10 +26,6 @@ const investorsPageLink = await getPageLink(
   import.meta.glob("../pages/investors/index.astro")
 );
 
-const investorsPageLinks = await getPageLinks(
-  import.meta.glob("../pages/investors/*.{astro,md,mdx,html}")
-);
-
 const careersPageLink = await getPageLink(
   import.meta.glob("../pages/careers/index.astro")
 );
@@ -101,11 +97,6 @@ const careersPageLink = await getPageLink(
               <NavBarItem
                 pageLink={investorsPageLink}
                 className="justify-between"
-                noHref
-              />
-              <NavBarMenu
-                links={investorsPageLinks}
-                overviewLinkHref={investorsPageLink.href}
               />
             </li>
             <li tabindex="0">
@@ -167,26 +158,7 @@ const careersPageLink = await getPageLink(
           )
         }
       </ul>
-      <li>
-        <NavBarItem pageLink={investorsPageLink} />
-      </li>
-      <ul class="px-4">
-        {
-          mapPageLinks(
-            (links, group) => (
-              <>
-                <NavGroupTitle group={group} />
-                {links.map((link) => (
-                  <li>
-                    <NavBarItem pageLink={link} />
-                  </li>
-                ))}
-              </>
-            ),
-            investorsPageLinks
-          )
-        }
-      </ul>
+      <li><NavBarItem pageLink={investorsPageLink} /></li>
       <li><NavBarItem pageLink={careersPageLink} /></li>
     </ul>
   </div>
