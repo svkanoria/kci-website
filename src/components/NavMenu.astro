@@ -29,7 +29,14 @@ const currentPath = new URL(Astro.request.url).pathname;
                     : ""
                 }
               >
-                {link.title}
+                {isCompact ? (
+                  <div class="flex">
+                    <div class="shrink-0 mr-2 text-stone-400">&bull;</div>
+                    <div>{link.title}</div>
+                  </div>
+                ) : (
+                  link.title
+                )}
               </a>
             </li>
           ))}
