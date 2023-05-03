@@ -1,8 +1,13 @@
 ---
+import CmsFileTable from "../../components/CmsFileTable.astro";
+import H2 from "../../components/typography/H2.astro";
 import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
 
 export const __kci_navTitle = "Subsidiary Accounts";
 export const __kci_navGroup = "Financial Results";
 ---
 
-<InvestorsPageLayout>Subsidiary Accounts</InvestorsPageLayout>
+<InvestorsPageLayout>
+  <H2>{__kci_navTitle}</H2>
+  <CmsFileTable story="subsidiary-accounts" />
+</InvestorsPageLayout>

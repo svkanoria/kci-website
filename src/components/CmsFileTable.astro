@@ -14,7 +14,7 @@ const { data } = await storyblokApi.get(`cdn/stories/${story}`, {
   version: import.meta.env.DEV ? "draft" : "published",
 });
 
-const files = data.story.content.files.map((file) => ({
+const files = data.story.content.files?.map((file) => ({
   name: file.name,
   url: file.asset.filename,
 }));
@@ -30,7 +30,7 @@ const files = data.story.content.files.map((file) => ({
     </thead>
     <tbody>
       {
-        files.map((file) => (
+        files?.map((file) => (
           <tr>
             <td>{nullifyIfBlank(file.name) ?? readableFileName(file.url)}</td>
             <td>
