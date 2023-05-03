@@ -1,5 +1,6 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
+import { nullifyIfBlank, readableFileName } from "../utils";
 
 export interface Props {
   story: string;
@@ -31,7 +32,7 @@ const files = data.story.content.files.map((file) => ({
       {
         files.map((file) => (
           <tr>
-            <td>{file.name}</td>
+            <td>{nullifyIfBlank(file.name) ?? readableFileName(file.url)}</td>
             <td>
               <a href={file.url} target="_blank" class="btn btn-xs btn-outline">
                 Download
