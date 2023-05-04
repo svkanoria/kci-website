@@ -1,4 +1,6 @@
 ---
+import CmsFileTable from "../../components/CmsFileTable.astro";
+import Section from "../../components/Section.astro";
 import H2 from "../../components/typography/H2.astro";
 import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
 
@@ -7,5 +9,20 @@ export const __kci_navGroup = "Financial Results";
 ---
 
 <InvestorsPageLayout>
-  <H2>{__kci_navTitle}</H2>
+  <Section>
+    <H2>{__kci_navTitle}</H2>
+    <CmsFileTable story="financial-results" />
+  </Section>
+  <Section>
+    <H2>Board Meeting Notices</H2>
+    <CmsFileTable story="board-meeting-notices" />
+  </Section>
+  <Section>
+    <H2>Annual Reports</H2>
+    <CmsFileTable story="annual-reports" />
+  </Section>
+  <Section>
+    <H2>Annual Returns</H2>
+    <CmsFileTable story="annual-returns" />
+  </Section>
 </InvestorsPageLayout>

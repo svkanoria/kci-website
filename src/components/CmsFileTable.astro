@@ -25,15 +25,17 @@ const files = data.story.content.files?.map((file) => ({
     <thead>
       <tr>
         <th>Name</th>
-        <th>File</th>
+        <th class="w-32">File</th>
       </tr>
     </thead>
     <tbody>
       {
         files?.map((file) => (
           <tr>
-            <td>{nullifyIfBlank(file.name) ?? readableFileName(file.url)}</td>
-            <td>
+            <td class="text-stone-500">
+              {nullifyIfBlank(file.name) ?? readableFileName(file.url)}
+            </td>
+            <td class="w-32 text-right">
               <a href={file.url} target="_blank" class="btn btn-xs btn-outline">
                 Download
               </a>

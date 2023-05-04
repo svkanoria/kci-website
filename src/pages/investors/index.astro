@@ -1,5 +1,6 @@
 ---
 import CmsFileTable from "../../components/CmsFileTable.astro";
+import Section from "../../components/Section.astro";
 import H2 from "../../components/typography/H2.astro";
 import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
 
@@ -8,5 +9,54 @@ export const __kci_navTitle = "Investors";
 
 <InvestorsPageLayout>
   <H2>Communication to Investors</H2>
-  <CmsFileTable story="investor-communications" />
+  <Section>
+    <CmsFileTable story="investor-communications" />
+  </Section>
+  <Section>
+    <article class="prose max-w-none">
+      <h3>Independent Directors</h3>
+      <ul>
+        <li>
+          <a
+            href="https://a.storyblok.com/f/209886/x/0d182ac26a/appointment-letter-of-independent-directors.pdf"
+            target="_blank"
+          >
+            Appointment letter of Independent Directors
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://a.storyblok.com/f/209886/x/e03fd10ecb/criteria-payments-to-ned.pdf"
+            target="_blank"
+          >
+            Criteria - Payments to Non Executive Directors
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://a.storyblok.com/f/209886/x/a5a3a67de8/familiarisation-programme.pdf"
+            target="_blank"
+          >
+            Familiarization Programme for Independent Directors
+          </a>
+        </li>
+      </ul>
+      <p>
+        For any investor related query or for sending us your feedback, please
+        write to us at: <a href="mailto:investor@kanoriachem.com">Feedback</a>
+      </p>
+      <p>For assistance and handling of investor grievances, please contact:</p>
+      <p>
+        Neha Saraf<br />
+        Company Secretary & Compliance Officer<br />
+        Kanoria Chemicals & Industries Limited<br />
+        KCI Plaza, 6th Floor, 23C Ashutosh Chowdhury Avenue, Kolkata 700019<br
+        />
+        Email: <a href="mailto:neha.saraf@kanoriachem.com"
+          >neha.saraf@kanoriachem.com</a
+        ><br />
+        Landline: 033-40313207
+      </p>
+    </article>
+  </Section>
 </InvestorsPageLayout>
