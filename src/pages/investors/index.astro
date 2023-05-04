@@ -1,5 +1,6 @@
 ---
 import CmsFileTable from "../../components/CmsFileTable.astro";
+import LiFile from "../../components/LiFile.astro";
 import Section from "../../components/Section.astro";
 import H2 from "../../components/typography/H2.astro";
 import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
@@ -16,37 +17,28 @@ export const __kci_navTitle = "Investors";
     <article class="prose max-w-none">
       <h3>Independent Directors</h3>
       <ul>
-        <li>
-          <a
-            href="https://a.storyblok.com/f/209886/x/0d182ac26a/appointment-letter-of-independent-directors.pdf"
-            target="_blank"
-          >
-            Appointment letter of Independent Directors
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://a.storyblok.com/f/209886/x/e03fd10ecb/criteria-payments-to-ned.pdf"
-            target="_blank"
-          >
-            Criteria - Payments to Non Executive Directors
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://a.storyblok.com/f/209886/x/a5a3a67de8/familiarisation-programme.pdf"
-            target="_blank"
-          >
-            Familiarization Programme for Independent Directors
-          </a>
-        </li>
+        <LiFile
+          href="https://a.storyblok.com/f/209886/x/0d182ac26a/appointment-letter-of-independent-directors.pdf"
+        >
+          Appointment letter of Independent Directors
+        </LiFile>
+        <LiFile
+          href="https://a.storyblok.com/f/209886/x/e03fd10ecb/criteria-payments-to-ned.pdf"
+        >
+          Criteria - Payments to Non Executive Directors
+        </LiFile>
+        <LiFile
+          href="https://a.storyblok.com/f/209886/x/a5a3a67de8/familiarisation-programme.pdf"
+        >
+          Familiarization Programme for Independent Directors
+        </LiFile>
       </ul>
       <p>
         For any investor related query or for sending us your feedback, please
         write to us at: <a href="mailto:investor@kanoriachem.com">Feedback</a>
       </p>
       <p>For assistance and handling of investor grievances, please contact:</p>
-      <p>
+      <p class="ml-4">
         Neha Saraf<br />
         Company Secretary & Compliance Officer<br />
         Kanoria Chemicals & Industries Limited<br />
