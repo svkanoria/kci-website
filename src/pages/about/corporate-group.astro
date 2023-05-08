@@ -1,5 +1,8 @@
 ---
+import CldImage from "../../components/CldImage.astro";
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
+import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 
 export const __kci_navBanner = "corporate-group-banner_obtdw3";
@@ -11,5 +14,41 @@ export const __kci_navDesc =
   <!-- Photo by <a href="https://unsplash.com/@photowolf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Olsen</a> on <a href="https://unsplash.com/photos/zR3wTk9End8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
   <TopHero slot="hero" title="Corporate Group" bgImageSrc={__kci_navBanner} />
-  <div>TBD</div>
+  <Section>
+    <article class="prose max-w-none">
+      <p>
+        Kanoria Chemicals & Industries Ltd. is part of a diversified, well
+        established corporate family based in India. We are a family-controlled,
+        values-driven group. We believe in a focus on quality, partnerships, and
+        social responsibility.
+      </p>
+    </article>
+  </Section>
+  <Section>
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+      <article
+        class="md:col-span-2 prose max-w-none md:text-2xl max-md:order-last"
+      >
+        <p>
+          The group's interests can be broadly divided into three verticals:
+          chemicals, electronics and textiles.
+        </p>
+        <p>
+          With locations around the world in 4 continents, we are privileged to
+          have an exceptionally dedicated team of over 9,000 people across the
+          various companies.
+        </p>
+      </article>
+      <CldImage
+        src="ascend_hvy9lq"
+        height="100%"
+        width="100%"
+        alt="Corporate group"
+        class="max-h-[300px] object-cover"
+      />
+    </div>
+  </Section>
+  <Section>
+    <H2>Chemicals</H2>
+  </Section>
 </AboutPageLayout>
