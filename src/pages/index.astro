@@ -13,6 +13,10 @@ import bondIcon from "../assets/bond-icon.svg";
 
 export const __kci_navTitle = "Home";
 
+const infrastructurePageLink = await getPageLink(
+  import.meta.glob("./about/infrastructure.astro")
+);
+
 const sustainabilityPageLink = await getPageLink(
   import.meta.glob("./about/sustainability.astro")
 );
@@ -105,6 +109,28 @@ const corporateGroupPageLink = await getPageLink(
   </Section>
   <Section isBox class="bg-stone-100">
     <BoundedContainer>
+      <SplitImageSection
+        image={{
+          src: infrastructurePageLink.banner,
+          alt: infrastructurePageLink.title,
+          transform: (image) =>
+            image.resize(Resize.fill().width(800).height(500)),
+        }}
+      >
+        <div class="flex flex-col">
+          <H2>{infrastructurePageLink.title}</H2>
+          <div class="prose">
+            <p>
+              {infrastructurePageLink.desc}
+            </p>
+          </div>
+          <div class="pt-8">
+            <a href={infrastructurePageLink.href} class="btn btn-outline">
+              Read More
+            </a>
+          </div>
+        </div>
+      </SplitImageSection>
       <SplitImageSection
         image={{
           src: "water-reservoir_kdxpoq",
