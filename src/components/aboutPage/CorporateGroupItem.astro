@@ -10,14 +10,14 @@ export interface Props {
 const { logoSrc, logoAlt } = Astro.props;
 ---
 
-<div class="flex mb-8 last-of-type:mb-0">
+<div class="flex max-sm:flex-col items-center mb-8 last-of-type:mb-0">
   <CldImage
     src={logoSrc}
     width="150px"
     height="auto"
     alt={logoAlt}
     transform={(image) => image.effect(grayscale())}
-    class="mr-8"
+    class="sm:mr-8 max-sm:mb-6"
   />
   <slot />
 </div>
