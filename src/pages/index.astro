@@ -11,6 +11,8 @@ import { getPageLink } from "../utils";
 import ProductList from "../components/homePage/ProductList.astro";
 import bondIcon from "../assets/bond-icon.svg";
 
+export const __kci_navTitle = "Home";
+
 const sustainabilityPageLink = await getPageLink(
   import.meta.glob("./about/sustainability.astro")
 );

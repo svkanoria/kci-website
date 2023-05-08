@@ -9,8 +9,11 @@ export interface PageLink {
   group?: string;
 }
 
-const getLinkHref = (path: string): string =>
-  path.replace(/.*pages\//, "/").replace(/(\/index)?\.[^.]*$/, "");
+const getLinkHref = (path: string): string => {
+  let result = path.replace(/.*pages\//, "/").replace(/(\/index)?\.[^.]*$/, "");
+  if (result === "") result = "/"; // Edge case to correctly handle home page
+  return result;
+};
 
 const getLinkTitle = (href: string): string =>
   href
