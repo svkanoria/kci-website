@@ -1,0 +1,23 @@
+---
+import { grayscale } from "@cloudinary/url-gen/actions/effect";
+import CldImage from "../CldImage.astro";
+
+export interface Props {
+  logoSrc: string;
+  logoAlt: string;
+}
+
+const { logoSrc, logoAlt } = Astro.props;
+---
+
+<div class="flex mb-8 last-of-type:mb-0">
+  <CldImage
+    src={logoSrc}
+    width="150px"
+    height="auto"
+    alt={logoAlt}
+    transform={(image) => image.effect(grayscale())}
+    class="mr-8"
+  />
+  <slot />
+</div>

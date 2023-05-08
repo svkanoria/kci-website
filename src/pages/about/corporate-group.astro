@@ -2,6 +2,7 @@
 import CldImage from "../../components/CldImage.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
+import CorporateGroupItem from "../../components/aboutPage/CorporateGroupItem.astro";
 import H2 from "../../components/typography/H2.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
 
@@ -50,5 +51,42 @@ export const __kci_navDesc =
   </Section>
   <Section>
     <H2>Chemicals</H2>
+    <CorporateGroupItem
+      logoSrc="kci-groupco-logo_dqpznk"
+      logoAlt="Kanoria Chemicals logo"
+    >
+      KCI - Manufacturing of chemical intermediates and specialties.
+      Headquartered in New Delhi, with manufacturing 3 facililies in West and
+      South India.
+    </CorporateGroupItem>
+    <CorporateGroupItem
+      logoSrc="kpl-groupco-logo_fs9rot"
+      logoAlt="KPL International logo"
+    >
+      KPL - Marketing of quality products in India, mainly in the field of
+      chemicals, polymers, paper and paper chemicals, sourced from globally
+      acclaimed manufacturers. Headquartered in New Delhi.
+    </CorporateGroupItem>
+  </Section>
+  <Section>
+    <H2>Electronics</H2>
+    <CorporateGroupItem
+      logoSrc="apag-groupco-logo_ztfbqb"
+      logoAlt="APAGCoSyst logo"
+    >
+      APAGCoSyst - Design and manufacturing of automotive concept lighting and
+      comfort electronics; electronic manufacturing services. Headquartered in
+      Switzerland, with manufacturing facilities in Czech Republic and Canada.
+    </CorporateGroupItem>
+  </Section>
+  <Section>
+    <H2>Textiles</H2>
+    <CorporateGroupItem
+      logoSrc="kat-groupco-logo_nc9zqb"
+      logoAlt="Kanoria Africa Textiles logo"
+    >
+      Kanoria Africa Textiles - Denim fabric and garment manufacturing in
+      Ethiopia.
+    </CorporateGroupItem>
   </Section>
 </AboutPageLayout>
