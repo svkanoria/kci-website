@@ -1,4 +1,4 @@
-import { groupBy, mapObjIndexed, omit, T, values } from "ramda";
+import { groupBy, mapObjIndexed, omit, sort, T, values } from "ramda";
 
 export interface PageLink {
   href: string;
@@ -7,6 +7,7 @@ export interface PageLink {
   banner?: string;
   desc?: string;
   group?: string;
+  serialNum?: number;
 }
 
 const getLinkHref = (path: string): string => {
@@ -29,6 +30,7 @@ const buildPageLink = (path: string, data: any): PageLink => ({
   banner: data.__kci_navBanner ?? undefined,
   desc: data.__kci_navDesc ?? undefined,
   group: data.__kci_navGroup ?? undefined,
+  serialNum: data.__kci_navSerialNum ?? undefined,
 });
 
 const getPageLinks = (
@@ -40,7 +42,12 @@ const getPageLinks = (
       .map(([path, fn]) => fn().then((data) => ({ path, data })))
   )
     .then((pages) => pages.map(({ path, data }) => buildPageLink(path, data)))
-    .then(groupBy((l) => l.group ?? "__default"));
+    .then(groupBy((l) => l.group ?? "__default"))
+    .then(
+      mapObjIndexed(
+        sort((l1, l2) => (l1.serialNum ?? 9999999) - (l2.serialNum ?? 9999999))
+      )
+    );
 
 const getPageLink = async (
   glob: Record<string, () => Promise<unknown>>
