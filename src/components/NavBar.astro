@@ -117,7 +117,7 @@ const careersPageLink = await getPageLink(
     <!-- Page content here -->
     <slot />
   </div>
-  <div class="drawer-side">
+  <div class="drawer-side" style="display: none;">
     <label for="main-nav" class="drawer-overlay"></label>
     <!-- `overflow-y-auto flex-nowrap` added 
       to fix Daisy unwanted scrollbar bug -->
@@ -173,3 +173,12 @@ const careersPageLink = await getPageLink(
     </ul>
   </div>
 </div>
+
+<script>
+  // This is added to prevent occasional flash of drawer occurring on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    (document.getElementsByClassName("drawer-side")[0] as HTMLElement).style[
+      "display"
+    ] = "grid";
+  });
+</script>
