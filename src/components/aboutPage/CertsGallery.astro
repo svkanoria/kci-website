@@ -1,0 +1,56 @@
+---
+import CldImage from "../CldImage.astro";
+import { cld } from "../../utils";
+import { Resize } from "@cloudinary/url-gen/actions";
+
+export interface Props {
+  images: { src: string; alt: string }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div
+  id="certsgallery"
+  class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+  aria-label="Awards and Certifications Gallery"
+>
+  {
+    images.map((image) => {
+      let imageUrl = cld.image(image.src).format("auto").quality("auto");
+      if (image.src.startsWith("https://")) {
+        imageUrl.setDeliveryType("fetch");
+      }
+      return (
+        <a href={imageUrl.toURL()} class="flex flex-col items-center mb-4">
+          <CldImage
+            src={image.src}
+            width="auto"
+            height="100%"
+            alt={image.alt}
+            transform={(image) => image.resize(Resize.fit(400, 400))}
+            class="h-60 object-fit mb-2"
+          />
+          <div class="text-center text-sm text-stone-700">{image.alt}</div>
+        </a>
+      );
+    })
+  }
+</div>
+
+<script>
+  import lightGallery from "lightgallery";
+  import lgThumbnail from "lightgallery/plugins/thumbnail";
+  import lgZoom from "lightgallery/plugins/zoom";
+  import "lightgallery/css/lightgallery.css";
+  import "lightgallery/css/lg-thumbnail.css";
+  import "lightgallery/css/lg-zoom.css";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const element = document.getElementById("certsgallery");
+    lightGallery(element, {
+      plugins: [lgThumbnail, lgZoom],
+      speed: 500,
+    });
+  });
+</script>

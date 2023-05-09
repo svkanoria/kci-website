@@ -1,6 +1,8 @@
 ---
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
+import CertsGallery from "../../components/aboutPage/CertsGallery.astro";
 
 export const __kci_navBanner = "sustain-banner_u1eoze";
 export const __kci_navDesc =
@@ -10,5 +12,50 @@ export const __kci_navSerialNum = 3;
 
 <AboutPageLayout>
   <TopHero slot="hero" title="Sustainability" bgImageSrc={__kci_navBanner} />
-  <div>TBD</div>
+  <Section>
+    <article class="prose max-w-none">
+      <p>
+        KCI is a <a
+          href="https://icca-chem.org/focus/responsible-care/"
+          target="_blank"
+          class="font-bold">Responsible Care</a
+        > company, and strongly believes in sustainable operations and sustainable
+        growth. We are constantly innovating to eliminate waste and reduce resource
+        consumption.
+      </p>
+      <p>
+        Our endeavours towards environmental sustainability have been recognized
+        and awarded over the years.
+      </p>
+    </article>
+  </Section>
+  <Section>
+    <CertsGallery
+      images={[
+        { src: "cert-responsible-care_yjyaj5", alt: "Responsible Care" },
+        { src: "cert-rc-14001_rqmyfj", alt: "RC 14001:2015" },
+        {
+          src: "cert-all-isos_sicauv",
+          alt: "ISO 9001:2015, ISO 14001:2015, ISO 45001:2018",
+        },
+        {
+          src: "cert-dm-trivedi_nr3kug",
+          alt: "ICMA DM Trivedi Award for Technology Advancement",
+        },
+        {
+          src: "cert-icma-water-mgmt_t4zblc",
+          alt: "ICMA Award for Water Resource Management",
+        },
+        { src: "cert-teri_pfrwyp", alt: "TERI Corporate Environent Award" },
+        {
+          src: "cert-icc-social-resp_rdouzj",
+          alt: "ICC Award for Social Responsibility",
+        },
+        {
+          src: "cert-greentech_lyqj8w",
+          alt: "Greentech Award for Environment Management",
+        },
+      ]}
+    />
+  </Section>
 </AboutPageLayout>

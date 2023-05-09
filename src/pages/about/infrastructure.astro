@@ -1,5 +1,7 @@
 ---
+import { Resize } from "@cloudinary/url-gen/actions";
 import Carousel from "../../components/Carousel.astro";
+import CldImage from "../../components/CldImage.astro";
 import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import H2 from "../../components/typography/H2.astro";
@@ -47,6 +49,28 @@ export const __kci_navSerialNum = 2;
     />
   </Section>
   <Section>
+    <div class="grid sm:grid-cols-2 mb-4">
+      <div class="flex flex-col bg-stone-100 p-4 justify-center">
+        <article class="prose max-w-none text-lg">
+          <h3>R&D Centre @ Ankleshwar</h3>
+          <p>
+            At our DSIR recognized research centre at Ankleshwar, we have a team
+            of scientists and engineers working on new products, waste
+            elimination and conservation of natural resources.
+          </p>
+        </article>
+      </div>
+      <CldImage
+        src="rnd-entrance-close_svgidy"
+        width="500px"
+        height="400px"
+        alt="Ankleshwar R&D Centre"
+        transform={(image) =>
+          image.resize(Resize.fill(500, 400).gravity("west"))}
+      />
+    </div>
+  </Section>
+  <Section>
     <H2>Visakhapatnam, Andhra Pradesh</H2>
     <article class="prose max-w-none mb-8">
       <p>
@@ -64,5 +88,15 @@ export const __kci_navSerialNum = 2;
         { image: { src: "tank-farm_aybbf2", alt: "Tank Farm" } },
       ]}
     />
+  </Section>
+  <Section>
+    <H2>Naidupeta, Andhra Pradesh</H2>
+    <article class="prose max-w-none mb-8">
+      <p>
+        Located at the southern tip of Andhra Pradesh, this facility is ideally
+        situated to cater to the fast growing laminate, MDF and particle board
+        industry in the region.
+      </p>
+    </article>
   </Section>
 </AboutPageLayout>
