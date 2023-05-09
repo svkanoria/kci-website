@@ -50,7 +50,7 @@ export const __kci_navSerialNum = 2;
     />
   </Section>
   <Section>
-    <div class="grid sm:grid-cols-2 mb-4">
+    <div class="grid sm:grid-cols-2 gap-1 mb-1">
       <div class="flex flex-col bg-stone-100 p-4 justify-center">
         <article class="prose max-w-none text-lg">
           <h3>R&D Centre @ Ankleshwar</h3>
@@ -70,6 +70,26 @@ export const __kci_navSerialNum = 2;
         transform={(image) =>
           image.resize(Resize.fill(500, 400).gravity("west"))}
       />
+    </div>
+    <div class="grid grid-cols-2 gap-1 mb-4">
+      {
+        [
+          "lab-ank_lamrbj",
+          "labwork_cqu01g",
+          "lab-vizag_icmrco",
+          "rnd-pilot-plant_n8zjlv",
+        ].map((src) => (
+          <CldImage
+            src={src}
+            width="800%"
+            height="500"
+            alt="Labwork"
+            transform={(image) =>
+              image.resize(Resize.fill(800, 500).gravity("west"))
+            }
+          />
+        ))
+      }
     </div>
   </Section>
   <Section>
