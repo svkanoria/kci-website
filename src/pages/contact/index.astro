@@ -1,0 +1,10 @@
+---
+import TopHero from "../../components/TopHero.astro";
+import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
+
+export const __kci_navTitle = "Contact Us";
+---
+
+<OneColumnLayout title={`${__kci_navTitle} - Kanoria Chemicals`}>
+  <TopHero slot="hero" title={__kci_navTitle} />
+</OneColumnLayout>
