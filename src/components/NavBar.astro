@@ -118,7 +118,7 @@ const productPageLinks = await getPageLinks(
       </div>
       <div class="navbar-end">
         <div class="flex-none hidden lg:block">
-          <NavBarItem pageLink={contactPageLink} className="justify-between" />
+          <NavBarItem pageLink={contactPageLink} />
         </div>
       </div>
     </div>
@@ -178,6 +178,7 @@ const productPageLinks = await getPageLinks(
         item to be highlighted for all its sub-pages. -->
       <li><NavBarItem pageLink={investorsPageLink} /></li>
       <li><NavBarItem pageLink={careersPageLink} activeIfExact /></li>
+      <li><NavBarItem pageLink={contactPageLink} activeIfExact /></li>
     </ul>
   </div>
 </div>
