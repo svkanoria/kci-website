@@ -6,10 +6,6 @@ import NavBarItem from "./navBar/NavBarItem.astro";
 import NavBarMenu from "./navBar/NavBarMenu.astro";
 import NavGroupTitle from "./NavGroupTitle.astro";
 
-const homePageLink = await getPageLink(
-  import.meta.glob("../pages/index.astro")
-);
-
 const aboutPageLink = await getPageLink(
   import.meta.glob("../pages/about/index.astro")
 );
@@ -18,20 +14,28 @@ const aboutPageLinks = await getPageLinks(
   import.meta.glob("../pages/about/*.{astro,md,mdx,html}")
 );
 
-const productsPageLink = await getPageLink(
-  import.meta.glob("../pages/products/index.astro")
+const careersPageLink = await getPageLink(
+  import.meta.glob("../pages/careers/index.astro")
 );
 
-const productPageLinks = await getPageLinks(
-  import.meta.glob("../pages/products/*.{astro,md,mdx,html}")
+const contactPageLink = await getPageLink(
+  import.meta.glob("../pages/contact/index.astro")
+);
+
+const homePageLink = await getPageLink(
+  import.meta.glob("../pages/index.astro")
 );
 
 const investorsPageLink = await getPageLink(
   import.meta.glob("../pages/investors/index.astro")
 );
 
-const careersPageLink = await getPageLink(
-  import.meta.glob("../pages/careers/index.astro")
+const productsPageLink = await getPageLink(
+  import.meta.glob("../pages/products/index.astro")
+);
+
+const productPageLinks = await getPageLinks(
+  import.meta.glob("../pages/products/*.{astro,md,mdx,html}")
 );
 ---
 
@@ -112,7 +116,11 @@ const careersPageLink = await getPageLink(
           </ul>
         </div>
       </div>
-      <div class="navbar-end"></div>
+      <div class="navbar-end">
+        <div class="flex-none hidden lg:block">
+          <NavBarItem pageLink={contactPageLink} className="justify-between" />
+        </div>
+      </div>
     </div>
     <!-- Page content here -->
     <slot />
