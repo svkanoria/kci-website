@@ -18,6 +18,8 @@ module.exports = {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],
           primary: "#003388",
+          accent: "#f2b90d",
+          "accent-content": "white",
           "--rounded-btn": "0rem",
           // Added by us
           "primary-focus": "mediumblue",

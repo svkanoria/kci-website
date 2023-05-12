@@ -30,7 +30,8 @@ const active = activeIfExact
     },
   ]}
 >
-  {pageLink.title}
+  <slot name="leftIcon" />
+  <b>{pageLink.title}</b>
   {
     noHref && (
       <svg

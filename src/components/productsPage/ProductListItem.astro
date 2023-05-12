@@ -28,7 +28,7 @@ const { pageLink } = Astro.props;
         transform={(image) =>
           image.resize(Resize.fill().width(300).height(300))
         }
-        class="flex-shrink-0 w-16 lg:w-24 h-16 lg:h-24 rounded-full shadow-xl"
+        class="flex-shrink-0 w-16 lg:w-24 h-16 lg:h-24 rounded-full shadow-xl md:border-4 border-accent"
       />
     )
   }

@@ -68,7 +68,11 @@ const { items, density = "regular" } = Astro.props;
   does not happen for some reason. -->
 <style is:global>
   button.carousel__arrow {
-    @apply w-12 h-12 bg-base-300 shadow-lg;
+    @apply w-10 h-10 bg-accent shadow-lg;
+  }
+
+  button.carousel__arrow > svg {
+    @apply fill-accent-content stroke-accent-content;
   }
 
   button.carousel__arrow.carousel__arrow--prev {
@@ -84,7 +88,7 @@ const { items, density = "regular" } = Astro.props;
   }
 
   button.carousel__pagination__page.is-active {
-    @apply bg-stone-500;
+    @apply bg-accent;
   }
 </style>
 

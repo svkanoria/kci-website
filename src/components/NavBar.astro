@@ -5,6 +5,7 @@ import CldImage from "./CldImage.astro";
 import NavBarItem from "./navBar/NavBarItem.astro";
 import NavBarMenu from "./navBar/NavBarMenu.astro";
 import NavGroupTitle from "./NavGroupTitle.astro";
+import Phone from "./icons/Phone.astro";
 
 const aboutPageLink = await getPageLink(
   import.meta.glob("../pages/about/index.astro")
@@ -118,7 +119,9 @@ const productPageLinks = await getPageLinks(
       </div>
       <div class="navbar-end">
         <div class="flex-none hidden lg:block">
-          <NavBarItem pageLink={contactPageLink} />
+          <NavBarItem pageLink={contactPageLink}>
+            <Phone slot="leftIcon" />
+          </NavBarItem>
         </div>
       </div>
     </div>
@@ -178,7 +181,11 @@ const productPageLinks = await getPageLinks(
         item to be highlighted for all its sub-pages. -->
       <li><NavBarItem pageLink={investorsPageLink} /></li>
       <li><NavBarItem pageLink={careersPageLink} activeIfExact /></li>
-      <li><NavBarItem pageLink={contactPageLink} activeIfExact /></li>
+      <li>
+        <NavBarItem pageLink={contactPageLink} activeIfExact>
+          <Phone slot="leftIcon" />
+        </NavBarItem>
+      </li>
     </ul>
   </div>
 </div>
