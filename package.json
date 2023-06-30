@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier -w .",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
-    "s3-sync": "aws s3 sync dist/ s3://kci-website",
+    "s3-sync": "aws s3 sync ./dist/ s3://kci-website",
     "cf-invalidate": "aws cloudfront create-invalidation --distribution-id E3HN5P72QM2MWU --paths \"/*\"",
     "deploy": "npm run build && npm run s3-sync && npm run cf-invalidate"
   },
