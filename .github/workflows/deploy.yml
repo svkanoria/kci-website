@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: "Create env file"
+        run: |
+          touch .env
+          echo STORYBLOK_TOKEN=${{ secrets.STORYBLOK_TOKEN }} >> .env
+          cat .env
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
