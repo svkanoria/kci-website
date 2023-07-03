@@ -1,11 +1,17 @@
-<div class="collapse collapse-plus border">
-  <input type="checkbox" />
-  <h3 class="collapse-title">
-    <slot name="question" />
-  </h3>
-  <div class="collapse-content">
-    <article class="prose max-w-none">
-      <slot />
-    </article>
+---
+import Section from "../Section.astro";
+---
+
+<Section isCompact>
+  <div class="collapse collapse-plus border">
+    <input type="checkbox" />
+    <h3 class="collapse-title">
+      <slot name="question" />
+    </h3>
+    <div class="collapse-content">
+      <article class="prose max-w-none">
+        <slot />
+      </article>
+    </div>
   </div>
-</div>
+</Section>

@@ -1,17 +1,19 @@
 ---
 export interface Props {
   isBox?: boolean;
+  isCompact?: boolean;
   class?: string;
 }
 
-const { isBox, class: className } = Astro.props;
+const { isBox, isCompact, class: className } = Astro.props;
 ---
 
 <section
   class:list={[
     {
       ["p-4 md:p-8"]: isBox,
-      ["pb-4 md:pb-8 last:pb-0"]: !isBox,
+      ["pb-4 md:pb-8 last:pb-0"]: !isBox && isCompact,
+      ["pb-4 md:pb-12 last:pb-0"]: !isBox && !isCompact,
     },
     className,
   ]}
