@@ -6,6 +6,7 @@ import Section from "../../components/Section.astro";
 import H2 from "../../components/typography/H2.astro";
 import ResinTable from "../../components/productsPage/ResinTable.astro";
 
+export const __kci_navBanner = "products-banner_riabmc";
 export const __kci_navThumb = "resin-product-thumb_f52736";
 export const __kci_navDesc =
   "Refractories | Friction and abrasives | Moulding compounds | Foundries and more...";
@@ -15,7 +16,7 @@ const { novolakPowders, novolakSolutions, resoles } = resinTableData;
 ---
 
 <ProductsPageLayout>
-  <TopHero slot="hero" title="Phenolic Resins" />
+  <TopHero slot="hero" title="Phenolic Resins" bgImageSrc={__kci_navBanner} />
   <Section class="prose max-w-none">
     <p>
       KCI offers a wide range of Phenol Formaldehyde resins for various

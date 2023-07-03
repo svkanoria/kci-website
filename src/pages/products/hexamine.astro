@@ -3,6 +3,7 @@ import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
 import { Content } from "../../content/Hexamine.md";
 
+export const __kci_navBanner = "products-banner_riabmc";
 export const __kci_navThumb = "hexa-product-thumb_d77793";
 export const __kci_navDesc =
   "Curing agent for resins | Rubber blowing agents | Agrochemicals and more...";
@@ -10,6 +11,6 @@ export const __kci_navGroup = "Intermediates";
 ---
 
 <ProductsPageLayout>
-  <TopHero slot="hero" title="Hexamine" />
+  <TopHero slot="hero" title="Hexamine" bgImageSrc={__kci_navBanner} />
   <article class="prose"><Content /></article>
 </ProductsPageLayout>

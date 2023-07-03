@@ -3,6 +3,7 @@ import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
 import { Content } from "../../content/Acetaldehyde.md";
 
+export const __kci_navBanner = "products-banner_riabmc";
 export const __kci_navThumb = "acet-product-thumb_cc39d3";
 export const __kci_navDesc =
   "Pharma and nutraceuticals | Paints and dyes | Polyester resins and more...";
@@ -10,6 +11,6 @@ export const __kci_navGroup = "Intermediates";
 ---
 
 <ProductsPageLayout>
-  <TopHero slot="hero" title="Acetaldehyde" />
+  <TopHero slot="hero" title="Acetaldehyde" bgImageSrc={__kci_navBanner} />
   <article class="prose"><Content /></article>
 </ProductsPageLayout>

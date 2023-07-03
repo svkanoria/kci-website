@@ -3,6 +3,7 @@ import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
 import { Content } from "../../content/SodiumFormate.md";
 import TopHero from "../../components/TopHero.astro";
 
+export const __kci_navBanner = "products-banner_riabmc";
 export const __kci_navThumb = "sfxx-product-thumb_0031a1";
 export const __kci_navDesc =
   "Oilfield drilling mud | Animal feed | Textile chemicals";
@@ -10,6 +11,6 @@ export const __kci_navGroup = "Intermediates";
 ---
 
 <ProductsPageLayout>
-  <TopHero slot="hero" title="Sodium Formate" />
+  <TopHero slot="hero" title="Sodium Formate" bgImageSrc={__kci_navBanner} />
   <article class="prose"><Content /></article>
 </ProductsPageLayout>

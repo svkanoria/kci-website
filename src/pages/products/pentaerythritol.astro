@@ -3,6 +3,7 @@ import TopHero from "../../components/TopHero.astro";
 import ProductsPageLayout from "../../layouts/ProductsPageLayout.astro";
 import { Content } from "../../content/Pentaerythritol.md";
 
+export const __kci_navBanner = "products-banner_riabmc";
 export const __kci_navThumb = "penta-product-thumb_6e007b";
 export const __kci_navDesc =
   "Paints | Polymer stabilizers | Lubricants, explosives, inks";
@@ -10,6 +11,6 @@ export const __kci_navGroup = "Intermediates";
 ---
 
 <ProductsPageLayout>
-  <TopHero slot="hero" title="Pentaerythritol" />
+  <TopHero slot="hero" title="Pentaerythritol" bgImageSrc={__kci_navBanner} />
   <article class="prose"><Content /></article>
 </ProductsPageLayout>
