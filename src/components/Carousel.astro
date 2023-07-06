@@ -22,7 +22,7 @@ const { items, density = "regular" } = Astro.props;
   <div class="splide__track">
     <ul class="splide__list">
       {
-        items.map((item) => (
+        items.map((item, index) => (
           <li class="splide__slide">
             {"image" in item ? (
               <div class="relative h-full">
@@ -47,7 +47,12 @@ const { items, density = "regular" } = Astro.props;
                     <h2 class="card-title">{item.news.headline}</h2>
                     <p class="line-clamp-3">{item.news.body}</p>
                     <div class="card-actions justify-end">
-                      <button class="btn btn-ghost">Read More</button>
+                      <label
+                        for={`news-modal-${index + 1}`}
+                        class="btn btn-ghost"
+                      >
+                        Read More
+                      </label>
                     </div>
                   </div>
                 </div>
