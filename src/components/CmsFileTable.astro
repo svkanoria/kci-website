@@ -21,18 +21,21 @@ const files = data.story.content.files?.map((file) => ({
 ---
 
 <div class="overflow-x-auto">
-  <table class="table table-compact w-full">
+  <table class="table table-compact table-fixed w-full">
     <thead>
       <tr>
         <th>Name</th>
-        <th class="w-32">File</th>
+        <th class="w-32 text-center">File</th>
       </tr>
     </thead>
     <tbody>
       {
         files?.map((file) => (
           <tr>
-            <td class="text-stone-500">
+            <td
+              class="text-stone-500 overflow-hidden text-ellipsis"
+              title={file.name}
+            >
               {nullifyIfBlank(file.name) ?? readableFileName(file.url)}
             </td>
             <td class="w-32 text-right">
