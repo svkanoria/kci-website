@@ -6,10 +6,11 @@ import BoundedContainer from "../../components/BoundedContainer.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export const __kci_navTitle = "Contact Us";
+export const __kci_navBanner = "admin-building_40e4d4";
 ---
 
 <Layout isUnbounded title={`${__kci_navTitle} - Kanoria Chemicals`}>
-  <TopHero slot="hero" title={__kci_navTitle} />
+  <TopHero slot="hero" title={__kci_navTitle} bgImageSrc={__kci_navBanner} />
   <Section isBox>
     <BoundedContainer>
       <div class="grid md:grid-cols-2 gap-y-12 gap-x-4">
