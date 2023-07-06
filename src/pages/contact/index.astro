@@ -1,10 +1,72 @@
 ---
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
-import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
+import Address from "../../components/contactPage/Address.astro";
+import BoundedContainer from "../../components/BoundedContainer.astro";
+import Layout from "../../layouts/Layout.astro";
 
 export const __kci_navTitle = "Contact Us";
 ---
 
-<OneColumnLayout title={`${__kci_navTitle} - Kanoria Chemicals`}>
+<Layout isUnbounded title={`${__kci_navTitle} - Kanoria Chemicals`}>
   <TopHero slot="hero" title={__kci_navTitle} />
-</OneColumnLayout>
+  <Section isBox>
+    <BoundedContainer>
+      <div class="grid md:grid-cols-2 gap-y-12 gap-x-4">
+        <Address
+          locationType="Registered Office"
+          companyName="Kanoria Chemicals and Industries Limited"
+          address={[
+            "'KCI Plaza', 6th Floor",
+            "23-C Ashutosh Chowdhury Avenue",
+            "Kolkata - 700 019",
+          ]}
+          phone="+91-33-40313200"
+          email="info@kanoriachem.com"
+        />
+        <Address
+          locationType="Corporate Office"
+          companyName="Kanoria Chemicals and Industries Limited"
+          address={[
+            "Indraprakash Building, 11th Floor",
+            "21 Barakhamba Road",
+            "New Delhi - 110 001",
+          ]}
+          phone="+91-11-43579200"
+        />
+        <Address
+          locationType="Ankleshwar Chemical Works"
+          companyName="Kanoria Chemicals and Industries Limited"
+          address={[
+            "3407 GIDC Industrial Estate",
+            "P.O. Ankleshwar, District Bharuch",
+            "Gujarat - 393 002",
+          ]}
+          phone="+91-2646-678801-03"
+        />
+        <Address
+          locationType="Visakhapatnam Chemical Works"
+          companyName="Kanoria Chemicals and Industries Limited"
+          address={[
+            "Plot No.32, Jawaharlal Nehru Pharma City",
+            "Parwada, Vishakhapatnam",
+            "Andhra Pradesh - 531 021",
+          ]}
+          phone="+91-8924-236056"
+        />
+      </div>
+    </BoundedContainer>
+  </Section>
+  <Section isBox class="bg-stone-100">
+    <BoundedContainer>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe8Dgv5KkevN9tkCYyxWUiMU7xiZBLo7J0dTqox1H2az_sGCQ/viewform?embedded=true"
+        width="100%"
+        height="1053px"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">Loading…</iframe
+      >
+    </BoundedContainer>
+  </Section>
+</Layout>
