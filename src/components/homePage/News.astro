@@ -38,7 +38,10 @@ const items: {
               {dayjs(item.news.timestamp).format("MMMM YYYY")}
             </div>
             <h3 class="font-bold text-2xl mb-4">{item.news.headline}</h3>
-            <article class="prose" set:html={marked.parse(item.news.body)} />
+            <article
+              class="prose max-w-none"
+              set:html={marked.parse(item.news.body)}
+            />
             <div class="modal-action">
               <label for={`news-modal-${index + 1}`} class="btn">
                 Close
