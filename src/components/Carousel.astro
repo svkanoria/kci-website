@@ -5,7 +5,14 @@ import CldImage from "./CldImage.astro";
 export interface Props {
   items: (
     | { image: { src: string; alt: string } }
-    | { news: { headline: string; body: string; timestamp: Date } }
+    | {
+        news: {
+          headline: string;
+          excerpt: string;
+          body: string;
+          timestamp: Date;
+        };
+      }
   )[];
   density?: "regular" | "dense";
 }
@@ -45,7 +52,7 @@ const { items, density = "regular" } = Astro.props;
                       {dayjs(item.news.timestamp).format("MMMM YYYY")}
                     </span>
                     <h2 class="card-title">{item.news.headline}</h2>
-                    <p class="line-clamp-3">{item.news.body}</p>
+                    <p class="line-clamp-3">{item.news.excerpt}</p>
                     <div class="card-actions justify-end">
                       <label
                         for={`news-modal-${index + 1}`}

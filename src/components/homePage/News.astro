@@ -2,6 +2,7 @@
 import { useStoryblokApi } from "@storyblok/astro";
 import Carousel from "../Carousel.astro";
 import dayjs from "dayjs";
+import { marked } from "marked";
 
 const storyblokApi = useStoryblokApi();
 
@@ -9,10 +10,16 @@ const { data } = await storyblokApi.get("cdn/stories/news", {
   version: import.meta.env.DEV ? "draft" : "published",
 });
 
-const items: { news: { headline: string; body: string; timestamp: Date } }[] =
-  data.story.content.items.slice(0, 4).map((item) => ({
-    news: item,
-  }));
+const items: {
+  news: {
+    headline: string;
+    excerpt: string;
+    body: string;
+    timestamp: Date;
+  };
+}[] = data.story.content.items.slice(0, 4).map((item) => ({
+  news: item,
+}));
 ---
 
 <>
@@ -31,7 +38,7 @@ const items: { news: { headline: string; body: string; timestamp: Date } }[] =
               {dayjs(item.news.timestamp).format("MMMM YYYY")}
             </div>
             <h3 class="font-bold text-2xl mb-4">{item.news.headline}</h3>
-            <p>{item.news.body}</p>
+            <article class="prose" set:html={marked.parse(item.news.body)} />
             <div class="modal-action">
               <label for={`news-modal-${index + 1}`} class="btn">
                 Close
