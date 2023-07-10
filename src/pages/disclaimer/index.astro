@@ -1,0 +1,13 @@
+---
+import OneColumnLayout from "../../layouts/OneColumnLayout.astro";
+import { Content } from "../../content/Disclaimer.md";
+
+export const __kci_navTitle = "Disclaimer";
+---
+
+<OneColumnLayout title={`${__kci_navTitle} - Kanoria Chemicals`}>
+  <article class="prose max-w-none">
+    <h1>{__kci_navTitle}</h1>
+    <Content />
+  </article>
+</OneColumnLayout>

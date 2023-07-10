@@ -24,6 +24,14 @@ const investorsPageLink = await getPageLink(
 const productsPageLink = await getPageLink(
   import.meta.glob("../pages/products/index.astro")
 );
+
+const disclaimerPageLink = await getPageLink(
+  import.meta.glob("../pages/disclaimer/index.astro")
+);
+
+const privacyPageLink = await getPageLink(
+  import.meta.glob("../pages/privacy-policy/index.astro")
+);
 ---
 
 <Section class="bg-neutral">
@@ -49,8 +57,12 @@ const productsPageLink = await getPageLink(
       </div>
       <div>
         <span class="footer-title">Legal</span>
-        <a class="link link-hover">Disclaimer</a>
-        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover" href={disclaimerPageLink.href}
+          >{disclaimerPageLink.title}
+        </a>
+        <a class="link link-hover" href={privacyPageLink.href}
+          >{privacyPageLink.title}
+        </a>
       </div>
       <div>
         <span class="footer-title">Contact</span>
