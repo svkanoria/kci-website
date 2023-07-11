@@ -1,0 +1,21 @@
+---
+import CldImage from "../CldImage.astro";
+
+export interface Props {
+  logoSrc: string;
+  logoAlt: string;
+}
+
+const { logoSrc, logoAlt } = Astro.props;
+---
+
+<div class="flex max-sm:flex-col items-center mb-8 last-of-type:mb-0">
+  <CldImage
+    src={logoSrc}
+    width="150px"
+    height="auto"
+    alt={logoAlt}
+    class="sm:mr-8 max-sm:mb-6"
+  />
+  <div><slot /></div>
+</div>

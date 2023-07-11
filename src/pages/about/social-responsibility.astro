@@ -1,6 +1,9 @@
 ---
+import Section from "../../components/Section.astro";
 import TopHero from "../../components/TopHero.astro";
 import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
+import SambhavaInitiativeItem from "../../components/aboutPage/SambhavaInitiativeItem.astro";
+import H2 from "../../components/typography/H2.astro";
 
 export const __kci_navBanner = "csr-banner_nr5qpv";
 export const __kci_navDesc =
@@ -14,5 +17,67 @@ export const __kci_navSerialNum = 4;
     title="Social Responsibility"
     bgImageSrc={__kci_navBanner}
   />
-  <div>TBD</div>
+  <Section>
+    <article class="prose max-w-none">
+      <p>
+        KCI's policies have consistently emphasised socially useful investment.
+        These have evolved on the dictates of the heart rather than the mind.
+        Much before the term 'Corporate Social Responsibility' was coined, KCI
+        has been giving back to society as it has grown.
+      </p>
+      <p>
+        Most of our activities are carried out by the Sambhava foundation, our
+        corporate group's centralized arm for social development programmes. The
+        foundation focusses on education and skill development, particularly for
+        women. Nonetheless, every company within the group has its own small
+        portfolio of ways in which we give back.
+      </p>
+    </article>
+  </Section>
+  <Section>
+    <H2>Sambhava Foundation's Initiatives</H2>
+    <SambhavaInitiativeItem
+      logoSrc="1-Hunar-Empowering-Women-through-Skills_zjj1no"
+      logoAlt="Hunar: Empowering Women Through Skills"
+    >
+      <b>Hunar: Empowering Women Through Skills</b> - Enables women of ages 18 to
+      35 coming from disadvantaged backgrounds, to gain economic independence, by
+      skilling them and thereafter providing placement support.
+    </SambhavaInitiativeItem>
+    <SambhavaInitiativeItem
+      logoSrc="2-Hunar-Social-Entrepreneurship-Program_uxq5do"
+      logoAlt="Hunar: Social Entrepreneurship Programme"
+    >
+      <b>Hunar: Social Entrepreneurship Programme</b> - Helps underprivileged women
+      set up their own profitable, sustainable and scalable small social enterprise.
+      This project has helped 10 girls in a period of two years to set up four boutiques
+      at different locations in Delhi.
+    </SambhavaInitiativeItem>
+    <SambhavaInitiativeItem
+      logoSrc="4-Koshish-Skilling-and-empowering-women-with-disabilities_ztlvtj"
+      logoAlt="Koshish: Skilling Differently Abled Women"
+    >
+      <b>Koshish: Skilling Differently Abled Women</b> - Assists differently abled
+      women aged 18 to 35 to become financially independent through vocational skill
+      building and placement support. This programme encompasses basic skill building,
+      sector specific training, pre-employment training and regular assessments and
+      feedback.
+    </SambhavaInitiativeItem>
+    <SambhavaInitiativeItem
+      logoSrc="3-Sambhava-Remedial-Classes_gfnx3r"
+      logoAlt="Sambhava: Remedial Classes"
+    >
+      <b>Sambhava: Remedial Classes</b> - Helps girls undergoing graduation through
+      open schools who wish to continue their studies further in order to have the
+      career they want.
+    </SambhavaInitiativeItem>
+    <SambhavaInitiativeItem
+      logoSrc="6-Sambhava-Scholarships"
+      logoAlt="Scholarships for Academics and Sports"
+    >
+      <b>Scholarships for Academics and Sports</b> - Sambhava helps in creating opportunities
+      by offering need-based scholarships to students for K-12 education, higher
+      studies as well as for sports.
+    </SambhavaInitiativeItem>
+  </Section>
 </AboutPageLayout>
