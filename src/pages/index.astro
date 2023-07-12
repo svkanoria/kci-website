@@ -91,9 +91,15 @@ const corporateGroupPageLink = await getPageLink(
       </div>
     </BoundedContainer>
   </Section>
-  <Section isBox class="bg-stone-100">
+  <Section
+    isBox
+    class="bg-stone-100 bg-cover bg-fixed"
+    bgImage="url(https://res.cloudinary.com/kanoriachem/image/upload/f_auto,q_auto:low,e_contrast:-40,w_1500/v1679120000/8N2A1497-Edit-3_bi9dri.jpg)"
+  >
     <BoundedContainer>
-      <H2>Latest News</H2>
+      <H2 class="flex">
+        <div class="p-4 bg-stone-100 bg-opacity-90">Latest News</div>
+      </H2>
       <News />
       <div class="h-6"></div>
     </BoundedContainer>

@@ -3,9 +3,10 @@ export interface Props {
   isBox?: boolean;
   isCompact?: boolean;
   class?: string;
+  bgImage?: string;
 }
 
-const { isBox, isCompact, class: className } = Astro.props;
+const { isBox, isCompact, class: className, bgImage } = Astro.props;
 ---
 
 <section
@@ -17,6 +18,7 @@ const { isBox, isCompact, class: className } = Astro.props;
     },
     className,
   ]}
+  style={{ backgroundImage: bgImage }}
 >
   <slot />
 </section>
