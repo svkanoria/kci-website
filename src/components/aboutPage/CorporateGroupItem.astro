@@ -1,6 +1,7 @@
 ---
 import { grayscale } from "@cloudinary/url-gen/actions/effect";
 import CldImage from "../CldImage.astro";
+import { Resize } from "@cloudinary/url-gen/actions";
 
 export interface Props {
   logoSrc: string;
@@ -16,8 +17,8 @@ const { logoSrc, logoAlt } = Astro.props;
     width="150px"
     height="auto"
     alt={logoAlt}
-    transform={(image) => image.effect(grayscale())}
+    transform={(image) => image.resize(Resize.fit().width(150))}
     class="sm:mr-8 max-sm:mb-6"
   />
-  <slot />
+  <div><slot /></div>
 </div>
