@@ -22,8 +22,8 @@ const { pageLink } = Astro.props;
     pageLink.thumb && (
       <CldImage
         src={pageLink.thumb}
-        width="300px"
-        height="300px"
+        width="300"
+        height="300"
         alt={pageLink.title}
         transform={(image) =>
           image.resize(Resize.fill().width(300).height(300))
