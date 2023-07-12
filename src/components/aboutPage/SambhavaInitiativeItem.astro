@@ -13,10 +13,10 @@ const { logoSrc, logoAlt, logoHeight } = Astro.props;
 <div class="flex max-sm:flex-col items-center mb-8 last-of-type:mb-0">
   <CldImage
     src={logoSrc}
-    width="150"
-    height={logoHeight ?? "100"}
+    width="300"
+    height={logoHeight ?? "200"}
     alt={logoAlt}
-    class="shrink-0 sm:mr-8 max-sm:mb-6"
+    class="shrink-0 sm:mr-8 max-sm:mb-6 w-[150px] max-sm:w-[300px]"
   />
   <div><slot /></div>
 </div>
