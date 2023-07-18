@@ -12,7 +12,7 @@ const { pageLinks, isCompact } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<ul class:list={["menu bg-base-100", { "menu-compact": isCompact }]}>
+<ul class:list={["menu", { "menu-compact": isCompact }]}>
   {
     mapPageLinks(
       (links, group) => (
