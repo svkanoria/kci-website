@@ -9,7 +9,7 @@ const env = loadEnv("", process.cwd(), "STORYBLOK");
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://d23mqz9f511gr7.cloudfront.net",
+  site: "https://www.kanoriachem.com",
   integrations: [
     tailwind(),
     storyblok({
