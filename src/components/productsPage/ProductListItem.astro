@@ -14,7 +14,7 @@ const { pageLink } = Astro.props;
 <a
   href={pageLink.href}
   class:list={[
-    "flex items-center md:px-4 py-3 md:py-4 hover:bg-base-200 active:bg-base-300",
+    "flex items-center md:px-4 py-3 md:py-5 hover:bg-base-200 active:bg-base-300",
     "md:odd:border-r md:last-of-type:border-r-0 border-solid border-base-300",
   ]}
 >
@@ -28,7 +28,7 @@ const { pageLink } = Astro.props;
         transform={(image) =>
           image.resize(Resize.fill().width(300).height(300))
         }
-        class="flex-shrink-0 w-16 lg:w-24 h-16 lg:h-24 rounded-full shadow-xl md:border-4 border-accent"
+        class="flex-shrink-0 w-16 lg:w-28 h-16 lg:h-28 rounded-full shadow-xl"
       />
     )
   }
