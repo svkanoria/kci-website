@@ -1,7 +1,8 @@
 ---
+import { HTMLAttributes } from "astro/types";
 import { PageLink, removeTrailingSlash } from "../../utils";
 
-interface Props {
+interface Props extends HTMLAttributes<"a"> {
   pageLink: PageLink;
   className?: string;
   noHref?: boolean;

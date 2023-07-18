@@ -112,6 +112,7 @@ const productPageLinks = await getPageLinks(
               <NavBarItem
                 pageLink={careersPageLink}
                 className="justify-between"
+                rel="prefetch-intent"
               />
             </li>
           </ul>
@@ -119,7 +120,7 @@ const productPageLinks = await getPageLinks(
       </div>
       <div class="navbar-end">
         <div class="flex-none hidden lg:block">
-          <NavBarItem pageLink={contactPageLink}>
+          <NavBarItem pageLink={contactPageLink} rel="prefetch-intent">
             <Phone slot="leftIcon" />
           </NavBarItem>
         </div>
@@ -180,9 +181,19 @@ const productPageLinks = await getPageLinks(
         Since we are not showing its sub-pages in the drawer menu, we want the 
         item to be highlighted for all its sub-pages. -->
       <li><NavBarItem pageLink={investorsPageLink} /></li>
-      <li><NavBarItem pageLink={careersPageLink} activeIfExact /></li>
       <li>
-        <NavBarItem pageLink={contactPageLink} activeIfExact>
+        <NavBarItem
+          pageLink={careersPageLink}
+          activeIfExact
+          rel="prefetch-intent"
+        />
+      </li>
+      <li>
+        <NavBarItem
+          pageLink={contactPageLink}
+          activeIfExact
+          rel="prefetch-intent"
+        >
           <Phone slot="leftIcon" />
         </NavBarItem>
       </li>
