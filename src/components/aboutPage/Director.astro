@@ -1,0 +1,42 @@
+---
+import { Resize } from "@cloudinary/url-gen/actions";
+import CldImage from "../CldImage.astro";
+import Section from "../Section.astro";
+export interface Props {
+  avatarSrc: string;
+  name: string;
+  directorType:
+    | "Chairman and Managing Director"
+    | "Independent Director"
+    | "Non-executive Director"
+    | "Whole Time Director";
+}
+
+const { avatarSrc, name, directorType } = Astro.props;
+---
+
+<Section>
+  <div class="flex mb-6 items-end">
+    <div class="avatar mr-4 md:mr-6">
+      <div class="w-[75px] h-[100px] md:w-[120px] md:h-[160px] shadow-lg">
+        <CldImage
+          src={avatarSrc}
+          width="120"
+          height="160"
+          alt={`${directorType} - ${name}`}
+          transform={(image) =>
+            image.resize(Resize.fill().width(120).height(160))}
+        />
+      </div>
+    </div>
+    <div>
+      <h2 class="text-xl md:text-3xl mb-2">{name}</h2>
+      <div class="text-lg text-gray-500">
+        {directorType}
+      </div>
+    </div>
+  </div>
+  <article class="prose max-w-none [&_li]:my-0">
+    <slot />
+  </article>
+</Section>

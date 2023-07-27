@@ -1,0 +1,78 @@
+---
+import TopHero from "../../components/TopHero.astro";
+import Director from "../../components/aboutPage/Director.astro";
+import AboutPageLayout from "../../layouts/AboutPageLayout.astro";
+import { Content as RVKanoria } from "../../content/directors/r-v-kanoria.md";
+import { Content as SidharthKumarBirla } from "../../content/directors/sidharth-kumar-birla.md";
+import { Content as HKKhaitan } from "../../content/directors/h-k-khaitan.md";
+import { Content as AmitavKothari } from "../../content/directors/amitav-kothari.md";
+import { Content as AVellayan } from "../../content/directors/a-vellayan.md";
+import { Content as SuhanaMurshed } from "../../content/directors/suhana-murshed.md";
+import { Content as MadhuvantiKanoria } from "../../content/directors/madhuvanti-kanoria.md";
+import { Content as SVKanoria } from "../../content/directors/s-v-kanoria.md";
+
+export const __kci_navTitle = "Board of Directors";
+export const __kci_navBanner = "board-of-dirs-banner_fd47ea";
+export const __kci_navDesc = "Board of directors.";
+export const __kci_navSerialNum = 5;
+---
+
+<AboutPageLayout>
+  <TopHero slot="hero" title={__kci_navTitle} bgImageSrc={__kci_navBanner} />
+  <Director
+    avatarSrc="r-v-kanoria-dir_z8egrm"
+    name="Mr. R. V. Kanoria"
+    directorType="Chairman and Managing Director"
+  >
+    <RVKanoria />
+  </Director>
+  <Director
+    avatarSrc="sidharth-kumar-birla-dir_uwbusf"
+    name="Mr. Sidharth Kumar Birla"
+    directorType="Independent Director"
+  >
+    <SidharthKumarBirla />
+  </Director>
+  <Director
+    avatarSrc="h-k-khaitan-dir_ei3pb8"
+    name="Mr. H. K. Khaitan"
+    directorType="Independent Director"
+  >
+    <HKKhaitan />
+  </Director>
+  <Director
+    avatarSrc="amitav-kothari-dir_wdfepp"
+    name="Mr. Amitav Kothari"
+    directorType="Independent Director"
+  >
+    <AmitavKothari />
+  </Director>
+  <Director
+    avatarSrc="a-vellayan-dir_vgoese"
+    name="Mr. A. Vellayan"
+    directorType="Independent Director"
+  >
+    <AVellayan />
+  </Director>
+  <Director
+    avatarSrc="suhana-murshed-dir_f0psor"
+    name="Ms. Suhana Murshed"
+    directorType="Independent Director"
+  >
+    <SuhanaMurshed />
+  </Director>
+  <Director
+    avatarSrc="madhuvanti-kanoria-dir_bzbck9"
+    name="Mrs. Madhuvanti Kanoria"
+    directorType="Non-executive Director"
+  >
+    <MadhuvantiKanoria />
+  </Director>
+  <Director
+    avatarSrc="s-v-kanoria-dir_bdw0nt"
+    name="Mr. S. V. Kanoria"
+    directorType="Whole Time Director"
+  >
+    <SVKanoria />
+  </Director>
+</AboutPageLayout>

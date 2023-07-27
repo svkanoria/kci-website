@@ -12,9 +12,9 @@ const { isBox, isCompact, class: className, bgImage } = Astro.props;
 <section
   class:list={[
     {
-      ["p-4 md:p-8"]: isBox,
-      ["pb-4 md:pb-8 last:pb-0"]: !isBox && isCompact,
-      ["pb-4 md:pb-12 last:pb-0"]: !isBox && !isCompact,
+      ["px-4 py-6 md:p-8"]: isBox,
+      ["pb-6 md:pb-8 last:pb-0"]: !isBox && isCompact,
+      ["pb-8 md:pb-12 last:pb-0"]: !isBox && !isCompact,
     },
     className,
   ]}
