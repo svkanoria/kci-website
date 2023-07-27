@@ -1,0 +1,28 @@
+---
+import { NavMenuProps } from "./NavMenu.astro";
+import NavMenuList from "./NavMenuList.astro";
+import Menu from "./icons/Menu.astro";
+
+interface Props extends NavMenuProps {}
+
+const { pageLinks, isCompact, className } = Astro.props;
+---
+
+<div class:list={["fixed z-50 bottom-4 right-4", className]}>
+  <div class="dropdown dropdown-top dropdown-end">
+    <label
+      tabindex={0}
+      class="btn btn-circle btn-primary shadow-lg border border-stone-300 opacity-80"
+    >
+      <Menu />
+    </label>
+    <div
+      tabindex={0}
+      class={"dropdown-content shadow-lg bg-white rounded-md" +
+        " w-80 max-w-[calc(100vw-50px)] max-h-[calc(100vh-200px)]" +
+        " overflow-y-auto mb-2 px-3 py-4"}
+    >
+      <NavMenuList pageLinks={pageLinks} isCompact={isCompact} />
+    </div>
+  </div>
+</div>

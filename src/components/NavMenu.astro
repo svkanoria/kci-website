@@ -1,48 +1,18 @@
 ---
-import { mapPageLinks, PageLink, removeTrailingSlash } from "../utils";
-import NavGroupTitle from "./NavGroupTitle.astro";
+import { PageLink } from "../utils";
+import NavMenuFab from "./NavMenuFab.astro";
+import NavMenuList from "./NavMenuList.astro";
 
 interface Props {
   pageLinks: Record<string, PageLink[]>;
   isCompact?: boolean;
+  className?: string;
 }
 
-const { pageLinks, isCompact } = Astro.props;
+const { className, ...props } = Astro.props;
 
-const currentPath = new URL(Astro.request.url).pathname;
+export type NavMenuProps = Props;
 ---
 
-<ul class:list={["menu", { "menu-compact": isCompact }]}>
-  {
-    mapPageLinks(
-      (links, group) => (
-        <>
-          <NavGroupTitle group={group} />
-          {links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class={
-                  removeTrailingSlash(currentPath) ===
-                  removeTrailingSlash(link.href)
-                    ? "active"
-                    : ""
-                }
-              >
-                {isCompact ? (
-                  <div class="flex">
-                    <div class="shrink-0 mr-2 text-stone-400">&bull;</div>
-                    <div>{link.title}</div>
-                  </div>
-                ) : (
-                  link.title
-                )}
-              </a>
-            </li>
-          ))}
-        </>
-      ),
-      pageLinks
-    )
-  }
-</ul>
+<NavMenuFab className="lg:hidden" {...props} />
+<NavMenuList className="max-md:hidden" {...props} />

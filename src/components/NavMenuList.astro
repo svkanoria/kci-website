@@ -1,0 +1,46 @@
+---
+import { mapPageLinks, removeTrailingSlash } from "../utils";
+import NavGroupTitle from "./NavGroupTitle.astro";
+import { NavMenuProps } from "./NavMenu.astro";
+
+interface Props extends NavMenuProps {}
+
+const { pageLinks, isCompact, className } = Astro.props;
+
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<ul class:list={["menu", { "menu-compact": isCompact }, className]}>
+  {
+    mapPageLinks(
+      (links, group) => (
+        <>
+          <NavGroupTitle group={group} />
+          {links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={
+                  removeTrailingSlash(currentPath) ===
+                  removeTrailingSlash(link.href)
+                    ? "active"
+                    : ""
+                }
+              >
+                {isCompact ? (
+                  <div class="flex">
+                    <div class="shrink-0 mr-2 text-stone-400">&bull;</div>
+                    <div>{link.title}</div>
+                  </div>
+                ) : (
+                  link.title
+                )}
+              </a>
+            </li>
+          ))}
+        </>
+      ),
+      pageLinks
+    )
+  }
+</ul>
