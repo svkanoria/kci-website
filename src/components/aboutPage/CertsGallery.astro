@@ -22,17 +22,21 @@ const { images } = Astro.props;
         imageUrl.setDeliveryType("fetch");
       }
       return (
-        <a href={imageUrl.toURL()} class="flex flex-col items-center mb-4">
-          <CldImage
-            src={image.src}
-            width="auto"
-            height="100%"
-            alt={image.alt}
-            transform={(image) => image.resize(Resize.fit(400, 400))}
-            class="h-60 object-fit mb-2"
-          />
-          <div class="text-center text-sm text-stone-700">{image.alt}</div>
-        </a>
+        <div class="flex justify-center">
+          <div />
+          <a href={imageUrl.toURL()} class="flex flex-col items-center mb-4">
+            <CldImage
+              src={image.src}
+              width="auto"
+              height="100%"
+              alt={image.alt}
+              transform={(image) => image.resize(Resize.fit(400, 400))}
+              class="h-60 object-fit mb-2"
+            />
+            <div class="text-center text-sm text-stone-700">{image.alt}</div>
+          </a>
+          <div />
+        </div>
       );
     })
   }
@@ -49,6 +53,7 @@ const { images } = Astro.props;
   document.addEventListener("DOMContentLoaded", function () {
     const element = document.getElementById("certsgallery");
     lightGallery(element, {
+      selector: "a",
       plugins: [lgThumbnail, lgZoom],
       speed: 500,
     });
