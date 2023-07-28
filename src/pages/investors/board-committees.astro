@@ -1,0 +1,13 @@
+---
+import InvestorsPageLayout from "../../layouts/InvestorsPageLayout.astro";
+import H2 from "../../components/typography/H2.astro";
+import CmsFileTable from "../../components/CmsFileTable.astro";
+
+export const __kci_navTitle = "Board Committees";
+export const __kci_navGroup = "Corporate Governance";
+---
+
+<InvestorsPageLayout>
+  <H2>{__kci_navTitle}</H2>
+  <CmsFileTable story="board-committees" />
+</InvestorsPageLayout>
