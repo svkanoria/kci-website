@@ -14,7 +14,7 @@ I have WSL2 (Ubuntu) on Windows 11. Here are the steps I did:
    1. Install chocolatey package manager
    1. $ choco install mkcert
    1. $ mkcert -install
-   1. $ mkcert -CAROOT // This gives the location of the filed generated. Open this folder and copy the files generated
+   1. $ mkcert -CAROOT // This gives the location of the filed generated. Open this folder and copy the files generated.
 1. In Ubuntu window:
    1. Install brew package manager
    1. $ brew install mkcert
@@ -22,8 +22,11 @@ I have WSL2 (Ubuntu) on Windows 11. Here are the steps I did:
    1. $ mkcert -install
    1. $ npm install -g local-ssl-proxy
    1. Add the following script to package.json: `"proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"`
-   1. In the project root folder, run `$ npm run proxy` and `$ npm run dev`
+   1. In separate terminal windows, in the project root folder, run the commands `$ npm run dev` and `$ npm run proxy`
 1. In StoryBlok set the visual editor location to https://localhost:3010
+
+Finally, add the following line to the `.env` file. You can find the preview token in your StoryBlok space > Settings > Access Tokens.
+`STORYBLOK_TOKEN=<your preview token>`
 
 # Astro Starter Kit: Basics
 
