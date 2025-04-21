@@ -1,4 +1,4 @@
-Mrs. Madhuvanti Kanoria (DIN: 00142146) aged about 64 years, was born into a business family and graduated in Education (Hons.) from Loreto College, Calcutta. She is married to Mr. R. V. Kanoria, Managing Director of Kanoria Chemicals & Industries Limited
+Mrs. Madhuvanti Kanoria (DIN: 00142146) aged about 69 years, was born into a business family and graduated in Education (Hons.) from Loreto College, Calcutta. She is married to Mr. R. V. Kanoria, Managing Director of Kanoria Chemicals & Industries Limited
 
 She is currently the Policy Advisor at KPL International Limited and contributes to strategic decision making of the company. KPL International Limited is engaged in international business, specializing in sourcing, marketing, supply chain facilitation and distribution of Chemicals, Polymers, Paper, and Equipment & Allied Products.
 

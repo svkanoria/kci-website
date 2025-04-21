@@ -1,12 +1,10 @@
-Mr. R.V. Kanoria (DIN: 00003792), aged about 65 years, MBA (Hons.) from IMD, Switzerland, and Advance Management Programme from Wharton, USA, has over four decades of experience in the chemicals, textiles and jute industries. He currently holds the following offices:
+Mr. R.V. Kanoria (DIN: 00003792), aged about 70 years, MBA (Hons.) from IMD, Switzerland, and Advance Management Programme from Wharton, USA, has over four decades of experience in the chemicals, textiles and jute industries. He currently holds the following offices:
 
 - Chairman & Managing Director, Kanoria Chemicals & Industries Limited
 - Chairman, APAG Holding AG, Switzerland
 - Chairman, APAG Elektronik AG, Switzerland
 - Director, APAG Elektronik Corp., Canada
 - Director, J K Paper Limited
-- Director, Nestle India Limited
-- Director, Ludlow Jute & Specialities Limited
 - Director, R V Investment & Dealers Limited
 - Director, Kirtivardhan Finvest Services Limited
 - Director, Vardhan Limited
